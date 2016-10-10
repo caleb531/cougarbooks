@@ -1,0 +1,104 @@
+/* Page containers */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Ensure that HTML5 semantic elements render properly in older browsers */
+main,
+section,
+header,
+nav,
+footer,
+article {
+	display: block;
+}
+
+/* Horizontal site header at top of page */
+#site-header {
+	display: table;
+	padding: 10px 12px;
+	width: 100%;
+	/* Set header color to a dark blue (to match school colors) */
+	background-color: #14a;
+	box-sizing: border-box;
+}
+/* Name of site in header */
+#site-header h1 {
+	display: table-cell;
+	font-weight: 400;
+	vertical-align: middle;
+}
+#site-header h1 a {
+	font-size: inherit;
+	color: #fff;
+	text-decoration: none;
+}
+#site-header a {
+	font-size: 20px;
+}
+
+/* Site navigation in header */
+#site-navigation {
+	display: table-cell;
+	/* Prevent source code whitespace from disrupting layout */
+	font-size: 0;
+	vertical-align: middle;
+}
+#site-navigation ul {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+#site-navigation li {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	/* Disable bullets on nav items */
+	list-style-type: none;
+}
+#site-navigation a {
+	padding: 10px 20px;
+	font-size: 18px;
+	color: #fff;
+	/* Disable underline on nav items */
+	text-decoration: none;
+}
+
+/* Site search form in header */
+#site-search-form {
+	display: table-cell;
+	/* Force search form to right edge of site header */
+	width: 1%;
+	vertical-align: middle;
+}
+
+/* Site search input */
+/* Some of these styles should later be moved to apply to all text inputs */
+#site-search-field {
+	border: solid 1px rgba(0, 0, 0, 0.5);
+	padding: 6px 8px;
+	box-sizing: border-box;
+	background-color: rgba(0, 0, 0, 0.25);
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	color: #fff;
+}
+#site-search-field:focus {
+	outline-width: 0;
+	box-shadow: 0 0 3px 2px #69f;
+}
+/* Style the text input placeholder color; do not combine these CSS rules */
+#site-search-field::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+#site-search-field::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Temporarily hide submitt button; will later be styled to look like a mangifying glass */
+#site-search-submit {
+	display: none;
+}
