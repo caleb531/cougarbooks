@@ -112,7 +112,9 @@ article {
 	margin-top: -10px;
 	z-index: 10;
 	border-width: 0;
-	background-image: url('image/');
+	background-image: url('../svg/search.svg');
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
 	background-color: transparent;
 	font-size: 0;
 }
