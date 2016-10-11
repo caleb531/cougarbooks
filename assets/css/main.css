@@ -60,8 +60,8 @@ article {
 	list-style-type: none;
 }
 #site-navigation a {
-	padding: 10px 20px;
-	font-size: 18px;
+	padding: 10px 15px;
+	font-size: 16px;
 	color: #fff;
 	/* Disable underline on nav items */
 	text-decoration: none;
@@ -87,7 +87,7 @@ article {
 	box-sizing: border-box;
 	background-color: rgba(0, 0, 0, 0.25);
 	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	color: #fff;
 }
 #site-search-field:focus {
