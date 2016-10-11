@@ -98,7 +98,8 @@ article {
 #site-search-field::-webkit-input-placeholder {
 	color: rgba(255, 255, 255, 0.5);
 }
-#site-search-field::-webkit-input-placeholder {
+#site-search-field::-moz-placeholder {
+	opacity: 1;
 	color: rgba(255, 255, 255, 0.5);
 }
 
