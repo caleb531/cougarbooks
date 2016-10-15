@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<title>CougarBooks</title>
+</head>
+<body>
+
+	<header id="site-header">
+		<h1><a href="/index.html">CougarBooks</a></h1>
+		<nav id="site-navigation">
+			<ul>
+				<li><a href="index.html">All Ads</a></li>
+				<li><a href="post.html">Post New Ad</a></li>
+				<li><a href="my-ads.html">My Ads</a></li>
+				<li><a href="account.html">Account</a></li>
+				<li><a href="sign-out.html">Sign Out</a></li>
+			</ul>
+		</nav>
+		<form action="search.html" id="site-search-form">
+			<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" />
+			<input type="submit" value="Submit" id="site-search-submit" />
+		</form>
+	</header>
+
+	<main>
+
+		<h1>Post Text Book</h1>
+		<div class="post-textbook" style="position: center;">
+			<form class="" method="post">
+
+				<label for="book-title">Book Title:</label><br>
+				<input id="book-title" type="text"  name="title" value=""><br>
+
+				<label for="author-field">Author:</label><br>
+				<input id="author-field" type="text" name="author" value=""><br>
+
+				<label for="book-version-field">Version</label><br>
+				<input id="book-version-field" type="text" name="book-version" value=""><br>
+
+				<label for="isbn-field">ISBN:</label><br>
+				<input id="isbn-field" type="text" name="isbn" value=""><br>
+
+				<label for="course-field">Course (i.e. CIS444):</label><br>
+				<input id="couse-field"  type="text" name="course" value=""><br>
+
+				<button type="button" name="cancel">Cancel</button>
+				<button type="submit" name="submit">Post Book</button>
+			</form>
+		</div>
+
+	</main>
+
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
