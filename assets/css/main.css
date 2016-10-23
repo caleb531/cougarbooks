@@ -160,3 +160,18 @@ form {
 	display: inline-block;
 	text-align: left;
 }
+
+/* HomePage  */
+.book-ad{
+	display: inline-block;
+	width: 40%;
+}
+
+.author{
+	margin: 5px;
+}
+
+.book-description{
+	width: 100%;
+
+}
