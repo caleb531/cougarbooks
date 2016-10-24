@@ -167,6 +167,9 @@ form {
 	display: inline-block;
 	width: 40%;
 }
+.book-title {
+	margin: 0;
+}
 
 .author{
 	margin: 5px;
