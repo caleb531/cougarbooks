@@ -203,3 +203,22 @@ img.book-image{
 	margin: 0 auto;
 	font-size: 18px;
 }
+
+/* Search page */
+
+.book-search-result {
+	background-color: #f9f9f9;
+	min-height: 150px;
+	padding: 15px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.book-search-thumbnail {
+	float: left;
+	background-color: #e3e3e3;
+	margin: 5px;
+	margin-right: 15px;
+	padding: 10px;
+	height: 120px;
+}

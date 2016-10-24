@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<title>CougarBooks</title>
+</head>
+<body>
+
+	<header id="site-header">
+		<h1><a href="index.html">CougarBooks</a></h1>
+		<nav id="site-navigation">
+			<ul>
+				<li><a href="index.html">All Ads</a></li>
+				<li><a href="post.html">Post New Ad</a></li>
+				<li><a href="my-ads.html">My Ads</a></li>
+				<li><a href="account.html">Account</a></li>
+				<li><a href="sign-in.html?signout=1">Sign Out</a></li>
+			</ul>
+		</nav>
+		<form action="search.html" id="site-search-form">
+			<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" />
+			<input type="submit" value="Submit" id="site-search-submit" />
+		</form>
+	</header>
+
+	<main>
+		<section id="home-intro">
+			<h1>Search a book</h1>
+			<p>Your search result for 'Programing'</p>
+		</section>
+		<div class="book-search-result">
+			<img class="book-search-thumbnail" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
+			<h3 class="book-title"><a href="ad.html?book=1">Programming Python</a></h3>
+			<div class="book-author">Author: Mary Ann</div>
+			<p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut...</p>
+		</div>
+
+		<div class="book-search-result">
+			<img class="book-search-thumbnail" src="http://www.stroustrup.com/4thEnglish.JPG" alt="cplusplus-book" />
+			<h3 class="book-title"><a href="ad.html?book=2">C++ Programming</a></h3>
+			<div class="book-author">Author: John Doe</div>
+			<p class="book-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
+		</div>
+
+	</main>
+
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
