@@ -184,8 +184,8 @@ img.book-image{
 
 /* Homepage */
 
-.home-description {
-	max-width: 600px;
+#home-intro {
+	max-width: 500px;
 	margin: 0 auto;
 	font-size: 18px;
 }
