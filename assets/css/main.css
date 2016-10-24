@@ -158,6 +158,9 @@ button:focus {
 	outline-width: 0;
 	background-color: #36c;
 }
+input[type='file'] {
+	margin: 6px 0;
+}
 
 /* Page containers */
 main {
