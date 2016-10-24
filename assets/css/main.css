@@ -181,3 +181,11 @@ img.book-image{
 	height: 250px;
 	width: 180px;
 }
+
+/* Homepage */
+
+.home-description {
+	max-width: 600px;
+	margin: 0 auto;
+	font-size: 18px;
+}
