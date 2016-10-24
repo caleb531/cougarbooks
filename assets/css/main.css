@@ -16,6 +16,14 @@ article {
 	display: block;
 }
 
+/* Links */
+a {
+	color: #14a;
+}
+a:hover {
+	color: #36c;
+}
+
 /* Horizontal site header at top of page */
 #site-header {
 	display: table;
