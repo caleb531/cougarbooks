@@ -224,6 +224,7 @@ form input[type="text"] {
 .book-author {
 	margin: 5px;
 	font-size: 15px;
+	font-style: italic;
 }
 
 .book-description {
