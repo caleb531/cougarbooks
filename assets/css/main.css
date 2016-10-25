@@ -135,9 +135,10 @@ a:hover {
 
 /* Generic form elements */
 
-/* Generic text input */
+/* Text inputs and multi-line text boxes */
 input[type='text'],
-input[type='password'] {
+input[type='password'],
+textarea {
 	padding: 6px 8px;
 	padding-right: 36px;
 	box-sizing: border-box;
@@ -146,7 +147,8 @@ input[type='password'] {
 	font-family: 'Open Sans', sans-serif;
 }
 input[type='text']:focus,
-input[type='password']:focus {
+input[type='password']:focus,
+textarea:focus {
 	outline-width: 0;
 	box-shadow: 0 0 3px 2px #69f;
 }
@@ -185,6 +187,14 @@ main {
 form {
 	display: inline-block;
 	text-align: left;
+}
+form textarea,
+form input[type="text"],
+form input[type="password"],
+form input[type="file"],
+form input[type="text"],
+form input[type="text"] {
+	width: 100%;
 }
 
 /* Textbook ad entries */
