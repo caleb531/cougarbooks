@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<title>CougarBooks</title>
+	<title>CougarBooks | Post New Ad</title>
 </head>
 <body>
 
@@ -12,7 +12,6 @@
 		<h1><a href="index.html">CougarBooks</a></h1>
 		<nav id="site-navigation">
 			<ul>
-				<li><a href="index.html">All Ads</a></li>
 				<li><a href="post.html">Post New Ad</a></li>
 				<li><a href="my-ads.html">My Ads</a></li>
 				<li><a href="account.html">Account</a></li>
@@ -31,8 +30,11 @@
 
 		<form class="post-form" action="index.html" method="post">
 
+			<label for="course-field">Course (<em>e.g.</em> CIS 444):</label><br>
+			<input id="course-field" type="text" name="course"><br>
+
 			<label for="book-title-field">Book Title:</label><br>
-			<input id="book-title-field" type="text"  name="title"><br>
+			<input id="book-title-field" type="text" name="title"><br>
 
 			<label for="book-author-field">Author:</label><br>
 			<input id="book-author-field" type="text" name="book-author"><br>
@@ -43,18 +45,17 @@
 			<label for="isbn-field">ISBN:</label><br>
 			<input id="isbn-field" type="text" name="isbn"><br>
 
+			<label for="book-description">Book Description:</label><br>
+			<textarea name="book-description" id="book-description"></textarea><br>
+
 			<label for="book-photo-field">Photo:</label><br>
 			<input id="book-photo-field" type="file" name="book-photo"><br>
 
-			<label for="course-field">Course (<em>e.g.</em> CIS 444):</label><br>
-			<input id="course-field" type="text" name="course"><br>
-
-			<button type="button" name="cancel-post">Cancel</button>
 			<button type="submit" name="submit">Submit</button>
+
 		</form>
 
 	</main>
-
 	<script src="assets/js/main.js"></script>
 </body>
 </html>
