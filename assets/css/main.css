@@ -230,6 +230,11 @@ form input[type="text"] {
 	width: 100%;
 }
 
+/* The label for a particular book attribute such as author or ISBN */
+.book-attr-label {
+	font-weight: bold;
+}
+
 /* Homepage */
 
 #home-intro {
