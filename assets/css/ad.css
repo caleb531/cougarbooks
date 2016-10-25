@@ -1,0 +1,19 @@
+.book-ad {
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	background: none;
+}
+
+.book-title {
+	margin-top: 1em;
+}
+
+.book-image {
+	height: 200px;
+}
+
+.contact-info {
+	text-align: left;
+	font-style: italic;
+}
