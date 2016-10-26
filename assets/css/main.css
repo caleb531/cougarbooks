@@ -191,9 +191,7 @@ form {
 form textarea,
 form input[type="text"],
 form input[type="password"],
-form input[type="file"],
-form input[type="text"],
-form input[type="text"] {
+form input[type="file"] {
 	width: 100%;
 }
 
