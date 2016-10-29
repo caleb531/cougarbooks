@@ -1,5 +1,3 @@
-USE `team2`
-
 CREATE TABLE `User`(
 	`UserID` INTEGER AUTO_INCREMENT,
 	`UserFirstName` VARCHAR(30) NOT NULL,
