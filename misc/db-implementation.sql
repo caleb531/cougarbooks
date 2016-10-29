@@ -34,5 +34,5 @@ CREATE TABLE `Ad`(
 	-- max length of 255 characters
 	`BookPhoto` VARCHAR(255),
 	PRIMARY KEY(`AdID`),
-	FOREIGN KEY(`UserID`) REFERENCES `User`(`UserID`)
+	FOREIGN KEY(`UserID`) REFERENCES `User`(`UserID`) ON DELETE CASCADE
 );
