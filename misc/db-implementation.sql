@@ -33,6 +33,7 @@ CREATE TABLE `Ad`(
 	-- The path to the uploaded image file on the server; all UNIX paths have a
 	-- max length of 255 characters
 	`BookPhoto` VARCHAR(255),
+	`BookDescription` VARCHAR(200),
 	PRIMARY KEY(`AdID`),
 	FOREIGN KEY(`UserID`) REFERENCES `User`(`UserID`) ON DELETE CASCADE
 );
