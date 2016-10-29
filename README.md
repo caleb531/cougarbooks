@@ -1,6 +1,6 @@
 # CougarBooks
 *A CIS 444 project*  
-http://cis444.cs.csusm.edu/evans099/cougarbooks/
+http://cis444.cs.csusm.edu/team2/cougarbooks/
 
 CougarBooks is a textbook-selling website for CSU San Marcos students. It originally began as a CIS 444 group project.
 
