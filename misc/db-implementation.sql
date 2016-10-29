@@ -5,8 +5,8 @@ CREATE TABLE `User`(
 	-- According to RFC 3396, email addresses have a max length of 320 chars
 	-- https://tools.ietf.org/html/rfc3696
 	`UserEmail` VARCHAR(320) NOT NULL,
-	-- US phone numbers consist of up to 11 digits and 3 optional dashes
-	`UserPhone` VARCHAR(11),
+	-- US phone numbers consist of up to 10 digits and 2 optional dashes
+	`UserPhone` VARCHAR(12),
 	-- A salted SHA256 hash of the user's password
 	`UserPassword` CHAR(64) NOT NULL,
 	-- A boolean indicating if the user is an administrator
