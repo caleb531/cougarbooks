@@ -1,11 +1,10 @@
-# CougarBooks
-*A CIS 444 project*  
+CougarBooks
+A CIS 444 project (team 2)
 http://cis444.cs.csusm.edu/team2/cougarbooks/
 
 CougarBooks is a textbook-selling website for CSU San Marcos students. It originally began as a CIS 444 group project.
 
-## Team members
-
+Team members
 - Samir Asfirane
 - Evan Causey
 - Caleb Evans
