@@ -9,16 +9,16 @@
 <body>
 
 	<header id="site-header">
-		<h1><a href="index.html">CougarBooks</a></h1>
+		<h1><a href="index.php">CougarBooks</a></h1>
 		<nav id="site-navigation">
 			<ul>
-				<li><a href="post.html">Post New Ad</a></li>
-				<li><a href="my-ads.html">My Ads</a></li>
-				<li><a href="account.html">Account</a></li>
-				<li><a href="sign-in.html?signout=1">Sign Out</a></li>
+				<li><a href="post.php">Post New Ad</a></li>
+				<li><a href="my-ads.php">My Ads</a></li>
+				<li><a href="account.php">Account</a></li>
+				<li><a href="sign-in.php?signout=1">Sign Out</a></li>
 			</ul>
 		</nav>
-		<form action="search.html" id="site-search-form">
+		<form action="search.php" id="site-search-form">
 			<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" />
 			<input type="submit" value="Submit" id="site-search-submit" />
 		</form>
@@ -32,7 +32,7 @@
 
 			<div class="book-ad">
 				<img class="book-image" src="http://contactcrucial.com/wp-content/uploads/2016/10/img-not-available.jpg" alt="book-of-life" />
-				<h3 class="book-title"><a href="ad.html?book=4">Book of Life</a></h3>
+				<h3 class="book-title"><a href="ad.php?book=4">Book of Life</a></h3>
 				<div class="book-authors"><span class="book-attr-label">Author(s):</span> Kevin Mata</div>
 				<div class="book-edition"><span class="book-attr-label">Edition:</span> 9</div>
 				<div class="book-price"><span class="book-attr-label">Price:</span> $40.00</div>
@@ -41,7 +41,7 @@
 
 			<div class="book-ad">
 				<img class="book-image" src="http://www.stroustrup.com/4thEnglish.JPG" alt="cplusplus-book" />
-				<h3 class="book-title"><a href="ad.html?book=2">C++ Programming</a></h3>
+				<h3 class="book-title"><a href="ad.php?book=2">C++ Programming</a></h3>
 				<div class="book-authors"><span class="book-attr-label">Author(s):</span> John Doe</div>
 				<div class="book-edition"><span class="book-attr-label">Edition:</span> 3</div>
 				<div class="book-price"><span class="book-attr-label">Price:</span> $70.00</div>

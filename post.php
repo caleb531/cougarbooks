@@ -9,16 +9,16 @@
 <body>
 
 	<header id="site-header">
-		<h1><a href="index.html">CougarBooks</a></h1>
+		<h1><a href="index.php">CougarBooks</a></h1>
 		<nav id="site-navigation">
 			<ul>
-				<li><a href="post.html">Post New Ad</a></li>
-				<li><a href="my-ads.html">My Ads</a></li>
-				<li><a href="account.html">Account</a></li>
-				<li><a href="sign-in.html?signout=1">Sign Out</a></li>
+				<li><a href="post.php">Post New Ad</a></li>
+				<li><a href="my-ads.php">My Ads</a></li>
+				<li><a href="account.php">Account</a></li>
+				<li><a href="sign-in.php?signout=1">Sign Out</a></li>
 			</ul>
 		</nav>
-		<form action="search.html" id="site-search-form">
+		<form action="search.php" id="site-search-form">
 			<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" />
 			<input type="submit" value="Submit" id="site-search-submit" />
 		</form>
@@ -28,7 +28,7 @@
 
 		<h1>Post New Textbook Ad</h1>
 
-		<form class="post-form" action="post.html" method="post">
+		<form class="post-form" action="post.php" method="post">
 
 			<label for="book-title-field">Book Title:</label><br>
 			<input id="book-title-field" type="text" name="title" required maxlength="100"><br>
