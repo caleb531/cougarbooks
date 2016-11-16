@@ -219,6 +219,9 @@ form input[type="file"] {
 .book-title {
 	margin: 0;
 }
+.book-price {
+	margin: 0;
+}
 
 .book-authors {
 	font-size: 15px;

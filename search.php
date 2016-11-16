@@ -11,22 +11,51 @@ include('assets/php/head.php');
 
 	<main>
 
+		<?php 
+			$page_index = isset($_GET['page']) ? $_GET['page'] : 0;
+			$search_word = isset($_GET['q']) ? $_GET['q'] : 'Nothing';
+		?>
+
 		<h1>Search a book</h1>
-		<p>Your search result for 'programming'</p>
+		<p>Your search result for '<?php echo $search_word ?>'</p>
+		<p>Page : <?php echo $page_index ?></p>
 
-		<div class="book-ad">
-			<img class="book-image" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
-			<h3 class="book-title"><a href="ad.php?book=1">Programming Python</a></h3>
-			<div class="book-authors"><span class="book-attr-label">Author(s):</span> Mary Ann</div>
-			<p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut...</p>
-		</div>
+		<?php
+			$books = $db->fetchAll(
+					"SELECT book_title, book_author, book_isbn, listed_price, ad_description ".
+					"FROM ad ".
+					"WHERE book_title ".
+					"LIKE '%:search%' ".
+					"LIMIT :page,11"
+				,
+				array(
+					'page' => htmlspecialchars( $page_index ),
+	        		'search' => htmlspecialchars( $search_word )
+	    		)
+			);
+		?>
 
-		<div class="book-ad">
-			<img class="book-image" src="http://www.stroustrup.com/4thEnglish.JPG" alt="cplusplus-book" />
-			<h3 class="book-title"><a href="ad.php?book=2">C++ Programming</a></h3>
-			<div class="book-authors"><span class="book-attr-label">Author(s):</span> John Doe</div>
-			<p class="book-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
-		</div>
+        <?php 
+        	for ($i = 1; $i <= 10; $i++) {
+				$book = $books[$i];
+		?>
+
+	        <a href="ad.php?book=1">
+				<div class="book-ad">
+					<img class="book-image" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
+					<h3 class="book-title"><?php echo $book['book_title'] ?></h3>
+					<h2 class="book-price"><?php echo $book['listed_price'] ?></h2>
+					<div class="book-authors"><span class="book-attr-label">Author(s):</span> <?php echo $book['book_author'] ?></div>
+					<p class="book-description"><?php echo substr($book['ad_description'],0, 200) ?>...</p>
+				</div>
+			</a>
+
+        <?php 
+    		} 
+    		if (count($books) == 11) {
+    			echo '<a href="search.php?q='.$search_word.'&page='.$page_index.'">Next Page</a>';
+    		}
+    	?>
 
 	</main>
 	<?php
