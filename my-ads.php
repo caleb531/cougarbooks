@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<title>CougarBooks | My Ads</title>
+<?php
+include('assets/php/head.php');
+?>
+<title>CougarBooks | My Ads</title>
 </head>
 <body>
 
