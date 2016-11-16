@@ -1,5 +1,6 @@
 <?php
 // Add database and user authentication logic here
+include('assets/php/database.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
