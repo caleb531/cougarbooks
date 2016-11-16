@@ -8,19 +8,9 @@
 </head>
 <body>
 
-	<header id="site-header">
-		<h1><a href="index.php">CougarBooks</a></h1>
-		<nav id="site-navigation">
-			<ul>
-				<li><a href="register.php">Register</a></li>
-				<li><a href="sign-in.php">Sign In</a></li>
-			</ul>
-		</nav>
-		<form action="search.php" id="site-search-form">
-			<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" />
-			<input type="submit" value="Submit" id="site-search-submit" />
-		</form>
-	</header>
+	<?php
+	include('assets/php/header.php');
+	?>
 
 	<main>
 
@@ -39,6 +29,8 @@
 		</form>
 
 	</main>
-	<script src="assets/js/main.js"></script>
+	<?php
+	include('assets/php/footer.php');
+	?>
 </body>
 </html>
