@@ -11,14 +11,14 @@ include('assets/php/head.php');
 
 	<main>
 
-		<?php 
+		<?php
 			$page_index = isset($_GET['page']) ? $_GET['page'] : 0;
 			$search_word = isset($_GET['q']) ? $_GET['q'] : 'Nothing';
 		?>
 
 		<h1>Search a book</h1>
-		<p>Your search result for '<?php echo $search_word ?>'</p>
-		<p>Page : <?php echo $page_index ?></p>
+		<p>Your search result for '<?php echo htmlspecialchars( $search_word ); ?>'</p>
+		<p>Page : <?php echo htmlspecialchars( $page_index ); ?></p>
 
 		<?php
 			$books = $db->fetchAll(
@@ -29,13 +29,13 @@ include('assets/php/head.php');
 					"LIMIT :page,11"
 				,
 				array(
-					'page' => htmlspecialchars( $page_index ),
-	        		'search' => htmlspecialchars( $search_word )
+					'page' => $page_index,
+	        		'search' => $search_word
 	    		)
 			);
 		?>
 
-        <?php 
+        <?php
         	for ($i = 1; $i <= 10; $i++) {
 				$book = $books[$i];
 		?>
@@ -50,8 +50,8 @@ include('assets/php/head.php');
 				</div>
 			</a>
 
-        <?php 
-    		} 
+        <?php
+    		}
     		if (count($books) == 11) {
     			echo '<a href="search.php?q='.$search_word.'&page='.$page_index.'">Next Page</a>';
     		}
