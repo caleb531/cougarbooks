@@ -53,6 +53,16 @@ class Database {
 		if($admin) ? return true : return false;
 	}
 
+	// get the row count of the last transaction
+	public function rowCount(){
+		return $this->stmt->rowCount();
+	}
+
+	// return the id of the last inserted row
+	public function lastInsertId(){
+		return $this->dbh->lastInsertId();
+	}
+
 }
 
 $db = new Database('team2', 'evans099', 'evans099');
