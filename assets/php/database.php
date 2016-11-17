@@ -14,13 +14,10 @@ class Database {
 	// Connect to database upon instantiation
 	function __construct($dbname, $user, $password) {
 		$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-		try{
+		try {
 			$this->dbh = new PDO( "mysql:host=localhost;dbname=$dbname", $user, $password );
-		}
-		catch{
-			(PDOException $e){
-				$this->error = $e->getMessage();
-			}
+		} catch (PDOException $e) {
+			$this->error = $e->getMessage();
 		}
 
 	}
@@ -47,10 +44,14 @@ class Database {
 	// checks to see if user is an administrator
 	public function isAdmin( $user_id ){
 		$query = "SELECT is_admin
-		 					FROM users
-							WHERE user_id = :user_id";
-		$admin = $db->fetchOne( $query, $user_id )
-		if($admin) ? return true : return false;
+		FROM users
+		WHERE user_id = :user_id";
+		$admin = $db->fetchOne( $query, $user_id );
+		if ( $admin ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	// get the row count of the last transaction
