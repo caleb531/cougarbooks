@@ -15,7 +15,7 @@ class Database {
 	function __construct($dbname, $user, $password) {
 		$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		try {
-			$this->dbh = new PDO( "mysql:host=localhost;dbname=$dbname", $user, $password );
+			$this->dbh = new PDO( "mysql:host=localhost;dbname=$dbname", $user, $password, $options );
 		} catch (PDOException $e) {
 			$this->error = $e->getMessage();
 		}
