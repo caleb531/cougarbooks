@@ -29,16 +29,16 @@ class Database {
 
 	// Fetches a single result (represented as an associative array)
 	public function fetchOne( $query, $params ) {
-		$sth = $this->dbh->prepare( $query );
-		$sth->execute( $params );
-		return $sth->fetch(PDO::FETCH_ASSOC);
+		$this->stmt = $this->dbh->prepare( $query );
+		$this->stmt->execute( $params );
+		return $this->stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 	// Fetches a sequential array of results
 	public function fetchAll( $query, $params ) {
-		$sth = $this->dbh->prepare( $query );
-		$sth->execute( $params );
-		return $sth->fetchAll(PDO::FETCH_ASSOC);
+		$this->stmt = $this->dbh->prepare( $query );
+		$this->stmt->execute( $params );
+		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	// checks to see if user is an administrator
