@@ -3,9 +3,26 @@
 // A wrapper class for interacting with the CougarBooks database
 class Database {
 
-	// Connet to database upon instantiation
+	// private $host = 'localhost';
+	// private $user = 'evans099'
+	// private $password = 'evans099';
+	// private $dbname = 'team2';
+
+	private $dbh;
+	private $error;
+
+	// Connect to database upon instantiation
 	function __construct($dbname, $user, $password) {
-		$this->dbh = new PDO( "mysql:host=localhost;dbname=$dbname", $user, $password );
+		$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		try{
+			$this->dbh = new PDO( "mysql:host=localhost;dbname=$dbname", $user, $password );
+		}
+		catch{
+			(PDOException $e){
+				$this->error = $e->getMessage();
+			}
+		}
+
 	}
 
 	// Close connection to database
@@ -25,6 +42,15 @@ class Database {
 		$sth = $this->dbh->prepare( $query );
 		$sth->execute( $params );
 		return $sth->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	// checks to see if user is an administrator
+	public function isAdmin( $user_id ){
+		$query = "SELECT is_admin
+		 					FROM users
+							WHERE user_id = :user_id";
+		$admin = $db->fetchOne( $query, $user_id )
+		if($admin) ? return true : return false;
 	}
 
 }
