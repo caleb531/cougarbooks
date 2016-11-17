@@ -46,7 +46,9 @@ class Database {
 		$query = "SELECT is_admin
 		FROM users
 		WHERE user_id = :user_id";
-		$admin = $db->fetchOne( $query, $user_id );
+		$admin = $db->fetchOne( $query, array(
+			'user_id' => $user_id
+		) );
 		if ( $admin ) {
 			return true;
 		} else {
