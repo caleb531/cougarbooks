@@ -145,6 +145,7 @@ textarea {
 	border: solid 1px #aaa;
 	font-size: 16px;
 	font-family: 'Open Sans', sans-serif;
+	resize: vertical;
 }
 input[type='text']:focus,
 input[type='password']:focus,
@@ -192,7 +193,7 @@ form textarea,
 form input[type="text"],
 form input[type="password"],
 form input[type="file"] {
-	width: 100%;
+	width: 300px;
 }
 
 /* Textbook ad entries */
