@@ -1,5 +1,7 @@
 <?php
+include('constants.php');
 include('database.php');
+include('upload.php');
 
 // Format thte book ISBN by removing dashes
 function cb_format_book_isbn( $book_isbn ) {
@@ -37,8 +39,11 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 			'ad_description' => trim( $_POST['ad_description'] )
 		) );
 
+		// Re-upload any provided book photo
+		delete_book_image( $_POST['ad_id'] );
+		upload_book_image( $_POST['ad_id'] );
 		// Redirect to updated ad page
-		header("Location: ../../ad.php?ad={$_POST['ad_id']}");
+		header("Location: ../../post.php?ad={$_POST['ad_id']}");
 
 	} else if ( ! empty( $_POST['close'] ) ) {
 
@@ -73,11 +78,12 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 		'ad_description' => trim( $_POST['ad_description'] )
 	) );
 
-	// Redirect to page for new ad
 	$new_ad_id = $db->lastInsertId();
-	header("Location: ../../ad.php?ad=$new_ad_id");
+	// Upload any provided book photo to server
+	upload_book_image( $new_ad_id );
+	// Redirect to page for new ad
+	header("Location: ../../post.php?ad=$new_ad_id");
 
 }
-
 
 ?>

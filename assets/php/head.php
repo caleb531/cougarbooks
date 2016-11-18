@@ -1,4 +1,5 @@
 <?php
+include('assets/php/constants.php');
 // Add database and user authentication logic here
 include('assets/php/database.php');
 ?>

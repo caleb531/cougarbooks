@@ -30,13 +30,14 @@ include('assets/php/head.php');
 				'book_edition' => '',
 				'book_isbn' => '',
 				'listed_price' => '',
+				'path_to_picture' => '',
 				'ad_description' => '',
 			);
 			echo '<h1>Post New Textbook Ad</h1>';
 		}
 		?>
 
-		<form class="post-form" action="assets/php/post.php" method="post">
+		<form class="post-form" action="assets/php/post.php" method="post" enctype="multipart/form-data">
 
 			<?php if ( ! empty( $_GET['ad'] ) ): ?>
 				<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $_GET['ad']; ?>">
@@ -60,8 +61,17 @@ include('assets/php/head.php');
 			<label for="ad-description">Book Description:</label><br>
 			<textarea name="ad_description" id="ad-description" placeholder="200 characters or less" maxlength="200"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></textarea><br>
 
-			<label for="book-photo-field">Photo:</label><br>
-			<input id="book-photo-field" type="file" name="book_photo"><br>
+			<input type="hidden" name="MAX_FILE_SIZE" value="1048576s" />
+
+			<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
+				<label>Book Photo:</label><br>
+				<img src="<?php echo AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture']; ?>" alt="<?php echo $ad['book_title']; ?>" class="book-image" /><br>
+				<label for="book-image-field">New Photo:</label><br>
+			<?php else: ?>
+				<label for="book-image-field">Book Photo:</label><br>
+			<?php endif; ?>
+			<input id="book-image-field" type="file" name="book_image"><br>
+			<small>(1MB max size)</small><br>
 
 			<?php if ( ! empty( $_GET['ad'] ) ): ?>
 				<button type="submit" name="submit" value="1">Save Changes</button>
