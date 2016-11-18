@@ -14,7 +14,7 @@ include('assets/php/head.php');
 
 		<div class="book-ad">
 			<img class="book-image" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
-			<a href="post.php?book=1" class="edit-ad-link">Edit</a>
+			<a href="post.php?ad=1" class="edit-ad-link">Edit</a>
 			<h1 class="book-title">Programming Python</h1>
 			<div class="book-authors"><span class="book-attr-label">Author(s):</span> Mary Ann</div>
 			<div class="book-edition"><span class="book-attr-label">Edition:</span> 5</div>

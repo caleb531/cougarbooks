@@ -40,7 +40,7 @@ include('assets/php/head.php');
 				$book = $books[$i];
 		?>
 
-	        <a href="ad.php?book=1">
+	        <a href="ad.php?ad=1">
 				<div class="book-ad">
 					<img class="book-image" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
 					<h3 class="book-title"><?php echo $book['book_title'] ?></h3>
