@@ -27,9 +27,3 @@ CREATE TABLE IF NOT EXISTS
 	PRIMARY KEY ad_PK (`ad_id`),
 	FOREIGN KEY user_FK (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE
 );
-
-
-
-
-
-
