@@ -1,7 +1,11 @@
 <?php
 include('assets/php/head.php');
 ?>
-<title>CougarBooks | Post New Ad</title>
+<?php if ( ! empty( $_GET['ad'] ) ): ?>
+	<title>CougarBooks | Edit Ad</title>
+<?php else: ?>
+	<title>CougarBooks | Post New Ad</title>
+<?php endif; ?>
 </head>
 <body>
 
@@ -10,8 +14,6 @@ include('assets/php/head.php');
 	?>
 
 	<main>
-
-
 
 		<?php
 		if ( ! empty( $_GET['ad'] ) ) {
@@ -61,7 +63,14 @@ include('assets/php/head.php');
 			<label for="book-photo-field">Photo:</label><br>
 			<input id="book-photo-field" type="file" name="book_photo"><br>
 
-			<button type="submit" name="submit" value="1">Submit</button>
+			<?php if ( ! empty( $_GET['ad'] ) ): ?>
+				<button type="submit" name="submit" value="1">Save Changes</button>
+				<?php if ( $ad['is_closed'] !== '1' ): ?>
+					<button type="submit" name="close" value="1" class="warning">Close Ad</button>
+				<?php endif; ?>
+			<?php else: ?>
+				<button type="submit" name="submit" value="1">Post New Ad</button>
+			<?php endif; ?>
 
 		</form>
 

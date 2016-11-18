@@ -11,6 +11,10 @@ include('assets/php/head.php');
 
 	<main>
 
+		<?php if ( ! empty( $_GET['closed'] ) ): ?>
+			<div class="notification">Ad has been closed.</div>
+		<?php endif; ?>
+
 		<h1>My Ads</h1>
 
 		<div id="books">
