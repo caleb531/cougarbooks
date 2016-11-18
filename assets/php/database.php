@@ -27,18 +27,25 @@ class Database {
 		$this->db = null;
 	}
 
+	// execute generic query (returning row count)
+	public function query( $query, $params ) {
+		$sth = $this->dbh->prepare( $query );
+		$sth->execute( $params );
+		return $sth->rowCount();
+	}
+
 	// Fetches a single result (represented as an associative array)
 	public function fetchOne( $query, $params ) {
-		$this->stmt = $this->dbh->prepare( $query );
-		$this->stmt->execute( $params );
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
+		$sth = $this->dbh->prepare( $query );
+		$sth->execute( $params );
+		return $sth->fetch(PDO::FETCH_ASSOC);
 	}
 
 	// Fetches a sequential array of results
 	public function fetchAll( $query, $params ) {
-		$this->stmt = $this->dbh->prepare( $query );
-		$this->stmt->execute( $params );
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+		$sth = $this->dbh->prepare( $query );
+		$sth->execute( $params );
+		return $sth->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	// checks to see if user is an administrator
@@ -60,14 +67,9 @@ class Database {
 	public function get_ad( $ad_id ) {
 		$query = 'SELECT * FROM ad WHERE ad_id = :ad_id';
 		$ad = $this->fetchOne( $query, array(
-			':ad_id' => $ad_id
+			'ad_id' => $ad_id
 		) );
 		return $ad;
-	}
-
-	// get the row count of the last transaction
-	public function rowCount(){
-		return $this->stmt->rowCount();
 	}
 
 	// return the id of the last inserted row
