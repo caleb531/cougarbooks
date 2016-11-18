@@ -56,6 +56,15 @@ class Database {
 		}
 	}
 
+	// Retrieve the attributes for the ad with the given ID
+	public function get_ad( $ad_id ) {
+		$query = 'SELECT * FROM ad WHERE ad_id = :ad_id';
+		$ad = $this->fetchOne( $query, array(
+			':ad_id' => $ad_id
+		) );
+		return $ad;
+	}
+
 	// get the row count of the last transaction
 	public function rowCount(){
 		return $this->stmt->rowCount();
