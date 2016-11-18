@@ -38,7 +38,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 		) );
 
 		// Redirect to updated ad page
-		header("Location: ../../post.php?ad={$_POST['ad_id']}");
+		header("Location: ../../ad.php?ad={$_POST['ad_id']}");
 
 	} else if ( ! empty( $_POST['close'] ) ) {
 
@@ -75,7 +75,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 
 	// Redirect to page for new ad
 	$new_ad_id = $db->lastInsertId();
-	header("Location: ../../post.php?ad=$new_ad_id");
+	header("Location: ../../ad.php?ad=$new_ad_id");
 
 }
 
