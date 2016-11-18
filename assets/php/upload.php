@@ -7,10 +7,10 @@ function upload_book_image( $ad_id ) {
 
 	if ( ! empty( $_FILES['book_image']['name'] ) ) {
 
-		$ad = $db->get_ad( $_POST['ad_id'] );
+		$ad = $db->get_ad( $ad_id );
 
 		$upload_file_ext = pathinfo( $_FILES['book_image']['name'] )['extension'];
-		$upload_file_full_name = "ad-{$_POST['ad_id']}.$upload_file_ext";
+		$upload_file_full_name = "ad-$ad_id.$upload_file_ext";
 		$upload_file_rel_path = AD_PHOTO_PATH_BASE . '/' . $upload_file_full_name;
 		// The absolute path to the file on the server
 		$upload_file_abs_path = dirname( __FILE__, 3 ) . '/' . $upload_file_rel_path;
@@ -28,7 +28,7 @@ function upload_book_image( $ad_id ) {
 
 		} else {
 
-			error_log( "Book photo upload failed for ad {$_POST['ad_id']}" );
+			error_log( "Book photo upload failed for ad $ad_id" );
 
 		}
 
