@@ -80,7 +80,7 @@ class Database {
 	public function sign_in( $email, $entered_password ){
 
 		if(!empty($email) && !empty($entered_password)){
-			$query = 'SELECT user_id, user_password
+			$query = 'SELECT user_id, user_password, is_admin
 			FROM user
 			WHERE email_address = :email_address
 			LIMIT 1';
@@ -90,10 +90,36 @@ class Database {
 			) );
 
 			if(hash_equals($user['user_password'], crypt($entered_password, $user['user_password'] ) ) ){
-				return $user['user_id'];
+				$_SESSION['signed_in'] = true;
+				$_SESSION['user_id'] = $user['user_id'];
+				$_SESSION['is_admin'] = $user['is_admin'];
 			} else {
-				return null;
+				$_SESSION['signed_in'] = false;
 			}
+		}
+	}
+
+	// Return true if the currently-signed-in user can edit this ad; otherwise,
+	public function allowed_to_edit_ad( $ad_id ) {
+		if ( $_SESSION['is_admin'] || empty( $ad_id ) ) {
+			// If signed-in user is admin or if ad ID isn't given, allow user to
+			// post ad
+			return true;
+		} else if ( ! empty( $ad_id ) ) {
+			// Otherwise, ad ID is provided, check if ad was posted by signed-in
+			// user
+
+			$query = 'SELECT user_id FROM ad WHERE ad_id = :ad_id';
+			$user = $this->fetchOne( $query, array(
+				'ad_id' => $ad_id
+			) );
+
+			if ( $user['user_id'] === $_SESSION['user_id'] ) {
+				return true;
+			} else {
+				return false;
+			}
+
 		}
 	}
 

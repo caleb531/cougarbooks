@@ -1,5 +1,4 @@
 <?php
-ini_set( 'display_errors', '1' );
 
 // Uploads a book photo passed via POST, associating it with the current ad
 function upload_book_image( $ad_id ) {

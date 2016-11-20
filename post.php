@@ -37,52 +37,68 @@ include('assets/php/head.php');
 		}
 		?>
 
-		<form class="post-form" action="assets/php/post.php" method="post" enctype="multipart/form-data">
+		<?php if ( isset( $_SESSION['signed_in'] ) ): ?>
 
-			<?php if ( ! empty( $_GET['ad'] ) ): ?>
-				<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $_GET['ad']; ?>">
-			<?php endif; ?>
+			<?php if ( $db->allowed_to_edit_ad( $_GET['ad'] ) ): ?>
 
-			<label for="book-title-field">Book Title:</label><br>
-			<input id="book-title-field" type="text" name="book_title" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" autofocus><br>
+				<form class="post-form" action="assets/php/post.php" method="post" enctype="multipart/form-data">
 
-			<label for="book-author-field">Author(s):</label><br>
-			<input id="book-author-field" type="text" name="book_author" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_author'] ); ?>"><br>
+					<?php if ( ! empty( $_GET['ad'] ) ): ?>
+						<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $_GET['ad']; ?>">
+					<?php endif; ?>
 
-			<label for="book-edition-field">Edition:</label><br>
-			<input id="book-edition-field" type="text" name="book_edition" maxlength="100" value="<?php echo $ad['book_edition']; ?>"><br>
+					<label for="book-title-field">Book Title:</label><br>
+					<input id="book-title-field" type="text" name="book_title" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" autofocus><br>
 
-			<label for="isbn-field">ISBN:</label><br>
-			<input id="isbn-field" type="text" name="book_isbn" required pattern="\s*\d(-?\d){9,12}\s*" maxlength="17" placeholder="10-digit or 13-digit ISBN" value="<?php echo htmlspecialchars( $ad['book_isbn'] ); ?>"><br>
+					<label for="book-author-field">Author(s):</label><br>
+					<input id="book-author-field" type="text" name="book_author" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_author'] ); ?>"><br>
 
-			<label for="book-price-field">Price:</label><br>
-			<input id="book-price-field" type="text" name="listed_price" maxlength="30" value="<?php echo $ad['listed_price']; ?>"><br>
+					<label for="book-edition-field">Edition:</label><br>
+					<input id="book-edition-field" type="text" name="book_edition" maxlength="100" value="<?php echo $ad['book_edition']; ?>"><br>
 
-			<label for="ad-description">Book Description:</label><br>
-			<textarea name="ad_description" id="ad-description" placeholder="200 characters or less" maxlength="200"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></textarea><br>
+					<label for="isbn-field">ISBN:</label><br>
+					<input id="isbn-field" type="text" name="book_isbn" required pattern="\s*\d(-?\d){9,12}\s*" maxlength="17" placeholder="10-digit or 13-digit ISBN" value="<?php echo htmlspecialchars( $ad['book_isbn'] ); ?>"><br>
 
-			<input type="hidden" name="MAX_FILE_SIZE" value="1048576s" />
+					<label for="book-price-field">Price:</label><br>
+					<input id="book-price-field" type="text" name="listed_price" maxlength="30" value="<?php echo $ad['listed_price']; ?>"><br>
 
-			<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
-				<label>Book Photo:</label><br>
-				<img src="<?php echo AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture']; ?>" alt="<?php echo $ad['book_title']; ?>" class="book-image" /><br>
-				<label for="book-image-field">New Photo:</label><br>
+					<label for="ad-description">Book Description:</label><br>
+					<textarea name="ad_description" id="ad-description" placeholder="200 characters or less" maxlength="200"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></textarea><br>
+
+					<input type="hidden" name="MAX_FILE_SIZE" value="1048576s" />
+
+					<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
+						<label>Book Photo:</label><br>
+						<img src="<?php echo AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture']; ?>" alt="<?php echo $ad['book_title']; ?>" class="book-image" /><br>
+						<label for="book-image-field">New Photo:</label><br>
+					<?php else: ?>
+						<label for="book-image-field">Book Photo:</label><br>
+					<?php endif; ?>
+					<input id="book-image-field" type="file" name="book_image"><br>
+					<small>(1MB max size)</small><br>
+
+					<?php if ( ! empty( $_GET['ad'] ) ): ?>
+						<button type="submit" name="submit" value="1">Save Changes</button>
+						<?php if ( $ad['is_closed'] !== '1' ): ?>
+							<button type="submit" name="close" value="1" class="warning">Close Ad</button>
+						<?php endif; ?>
+					<?php else: ?>
+						<button type="submit" name="submit" value="1">Post New Ad</button>
+					<?php endif; ?>
+
+				</form>
+
 			<?php else: ?>
-				<label for="book-image-field">Book Photo:</label><br>
-			<?php endif; ?>
-			<input id="book-image-field" type="file" name="book_image"><br>
-			<small>(1MB max size)</small><br>
 
-			<?php if ( ! empty( $_GET['ad'] ) ): ?>
-				<button type="submit" name="submit" value="1">Save Changes</button>
-				<?php if ( $ad['is_closed'] !== '1' ): ?>
-					<button type="submit" name="close" value="1" class="warning">Close Ad</button>
-				<?php endif; ?>
-			<?php else: ?>
-				<button type="submit" name="submit" value="1">Post New Ad</button>
+				<p>Sorry, but you are not allowed to edit ads which aren't your own.</p>
+
 			<?php endif; ?>
 
-		</form>
+		<?php else: ?>
+
+			<p>You must <a href="sign-in.php">sign in</a> or <a href="register.php">register</a> to post new ads.</p>
+
+		<?php endif; ?>
 
 	</main>
 	<?php

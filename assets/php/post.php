@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('constants.php');
 include('database.php');
 include('upload.php');
@@ -11,6 +12,11 @@ function cb_format_book_isbn( $book_isbn ) {
 // Format the listed price for an ad by removing any leading
 function cb_format_listed_price( $listed_price ) {
 	return trim( str_replace( '$', '', $listed_price ) );
+}
+
+// Only allow signed-in users to post or update ads
+if ( ! isset( $_SESSION['signed_in'] ) || ! $db->allowed_to_edit_ad( $_POST['ad_id'] ) ) {
+	die('Cannot post ad: authentication failed');
 }
 
 if ( ! empty( $_POST['ad_id'] ) ) {
@@ -30,7 +36,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 
 		$rowCount = $db->query( $query, array(
 			'ad_id' => $_POST['ad_id'],
-			'user_id' => 2,
+			'user_id' => $_SESSION['user_id'],
 			'book_title' => trim( $_POST['book_title'] ),
 			'book_author' => trim( $_POST['book_author'] ),
 			'book_edition' => trim( $_POST['book_edition'] ),
@@ -43,7 +49,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 		delete_book_image( $_POST['ad_id'] );
 		upload_book_image( $_POST['ad_id'] );
 		// Redirect to updated ad page
-		header("Location: ../../ad.php?ad={$_POST['ad_id']}");
+		header("Location: ../../post.php?ad={$_POST['ad_id']}");
 
 	} else if ( ! empty( $_POST['close'] ) ) {
 
@@ -69,7 +75,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 	VALUES (:user_id, :book_title, :book_author, :book_edition, :book_isbn, :listed_price, :ad_description)';
 
 	$rowCount = $db->query( $query, array(
-		'user_id' => 2,
+		'user_id' => $_SESSION['user_id'],
 		'book_title' => trim( $_POST['book_title'] ),
 		'book_author' => trim( $_POST['book_author'] ),
 		'book_edition' => trim( intval( $_POST['book_edition'] ) ),
@@ -82,7 +88,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 	// Upload any provided book photo to server
 	upload_book_image( $new_ad_id );
 	// Redirect to page for new ad
-	header("Location: ../../ad.php?ad=$new_ad_id");
+	header("Location: ../../post.php?ad=$new_ad_id");
 
 }
 
