@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS
 	`listed_price` decimal(8,2) DEFAULT 0,
 	`path_to_picture` VARCHAR(255),
 	`ad_description` VARCHAR(200),
+	`creation_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	`is_closed` BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY ad_PK (`ad_id`),
 	FOREIGN KEY user_FK (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE
