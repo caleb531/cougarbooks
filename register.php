@@ -13,7 +13,7 @@ include('assets/php/head.php');
 
 		<h1>Register</h1>
 
-		<form class="register-form" action="index.php" method="post">
+		<form class="register-form" action="assets/php/register.php" method="post">
 
 			<label for="first-name-field">First Name:</label><br>
 			<input id="first-name-field" type="text" name="first_name" required><br>
@@ -33,7 +33,7 @@ include('assets/php/head.php');
 			<label for="confirm-password-field">Confirm Password:</label><br>
 			<input id="confirm-password-field" type="password" name="confirm_password" required><br>
 
-			<button type="submit" name="submit">Register</button>
+			<button type="submit" name="submit" value="1">Register</button>
 
 		</form>
 

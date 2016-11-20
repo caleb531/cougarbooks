@@ -77,8 +77,41 @@ class Database {
 		return $this->dbh->lastInsertId();
 	}
 
+	public function check_hash(){
+		$query = $query = 'SELECT user_id, user_password
+		FROM user
+		WHERE email_address = :email_address';
+
+	}
+
+	public function sign_in( $email, $password ){
+
+		if(!empty($email) && !empty($password)){
+			$query = 'SELECT user_id, user_password
+			FROM user
+			WHERE email_address = :email_address
+			LIMIT 1';
+
+			$user = $this->fetchOne( $query, array(
+				'email_address' => $email
+			) );
+
+			if(hash_equals($user['user_password'], crypt($password, $user['user_password'] ) ) ){
+
+				//return $user['user_password'];
+				return $user['user_id'];
+			}
+		}
+	}
+
 }
 
-$db = new Database('team2', 'evans099', 'evans099');
+
+//$db = new Database('team2', 'evans099', 'evans099');
+
+
+$db = new Database('team2', 'root', '');
+
+
 
 ?>
