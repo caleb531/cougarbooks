@@ -77,9 +77,9 @@ class Database {
 		return $this->dbh->lastInsertId();
 	}
 
-	public function sign_in( $email, $password ){
+	public function sign_in( $email, $entered_password ){
 
-		if(!empty($email) && !empty($password)){
+		if(!empty($email) && !empty($entered_password)){
 			$query = 'SELECT user_id, user_password
 			FROM user
 			WHERE email_address = :email_address
@@ -89,8 +89,10 @@ class Database {
 				'email_address' => $email
 			) );
 
-			if(hash_equals($user['user_password'], crypt($password, $user['user_password'] ) ) ){
+			if(hash_equals($user['user_password'], crypt($entered_password, $user['user_password'] ) ) ){
 				return $user['user_id'];
+			} else {
+				return null;
 			}
 		}
 	}
@@ -99,10 +101,5 @@ class Database {
 
 
 $db = new Database('team2', 'evans099', 'evans099');
-
-// used for local setup database
-//$db = new Database('team2', 'root', '');
-
-
 
 ?>

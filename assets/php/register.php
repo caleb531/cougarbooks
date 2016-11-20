@@ -56,7 +56,7 @@ if( ! empty( $_POST['submit'] ) ){
 
 	// make sure that both the password and confirmed password matches
 	// in order to avoid the user entering incorrect password
-	if( $user_password == $confirm_password){
+	if( $user_password == $confirm_password ){
 
 		$query = 'INSERT INTO user
 		( first_name, last_name, email_address, telephone_no, user_password  )
@@ -75,7 +75,7 @@ if( ! empty( $_POST['submit'] ) ){
 		$_SESSION['signed_in'] = true;
 		$_SESSION['user_id'] = $new_user_id;
 
-		header("Location: ../../account.php?user_id=$new_user_id");
+		header("Location: ../../my-ads.php");
 
 	}else{
 		header("Location: ../../register.php?password_unmatch=1");

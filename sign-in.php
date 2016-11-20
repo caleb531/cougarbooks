@@ -1,6 +1,10 @@
 <?php
 include('assets/php/head.php');
-
+// if instructed to signout
+// lets clear all the session variables
+if( isset( $_GET['signout'] ) ){
+	session_unset();
+}
 ?>
 <title>CougarBooks | Sign In</title>
 </head>
@@ -10,17 +14,11 @@ include('assets/php/head.php');
 	include('assets/php/header.php');
 	?>
 
-	<?php
-	// if instructed to signout
-	// lets clear all the session variables
-	if( isset( $_GET['signout'] ) == 1 ){
-		session_unset();
-	}
-
-	?>
-
-
 	<main>
+
+		<?php if ( isset( $_GET['signout'] ) ): ?>
+			<div class="notification">You have been signed out.</div>
+		<?php endif; ?>
 
 		<h1>Sign In</h1>
 
@@ -39,7 +37,7 @@ include('assets/php/head.php');
 		<?php
 		// prompt the user to let them know their login failed
 		if( isset( $_GET['loginFailed'] ) == 1 ){
-			echo "<p>Login Credential Failed. Please try Again</p>";
+			echo "<p>Incorrect email or password. Please try again.</p>";
 		}
 		?>
 

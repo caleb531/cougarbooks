@@ -1,31 +1,31 @@
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "admin", "admin", "admin@cougars.csusm.edu", "1111111111", 1);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "admin", "admin", "admin@cougars.csusm.edu", "1111111111", 1);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Evan", "Causey", "EC@cougars.csusm.edu", "7605558987", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Evan", "Causey", "EC@cougars.csusm.edu", "7605558987", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Caleb", "Evans", "CE@cougars.csusm.edu", "7605559876", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Caleb", "Evans", "CE@cougars.csusm.edu", "7605559876", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Kevin", "Mata", "KM@cougars.csusm.edu", "7605559999", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Kevin", "Mata", "KM@cougars.csusm.edu", "7605559999", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Luis", "Moreno", "LM@cougars.csusm.edu", "7605551111", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Luis", "Moreno", "LM@cougars.csusm.edu", "7605551111", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Samir", "Asfirane", "SA@cougars.csusm.edu", "7605552222", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Samir", "Asfirane", "SA@cougars.csusm.edu", "7605552222", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Dom", "Aguayo Huerta", "DL@authors.csusm.edu", "5519993333", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Dom", "Aguayo Huerta", "DL@authors.csusm.edu", "5519993333", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Anubis", "Aguayo Huerta", "AL@authors.csusm.edu", "5559993333", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Anubis", "Aguayo Huerta", "AL@authors.csusm.edu", "5559993333", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Cathy", "O'Neil", "Cathy@authors.csusm.edu", "1112223333", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Cathy", "O'Neil", "Cathy@authors.csusm.edu", "1112223333", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Tom", "Griffiths", "Tom@authors.csusm.edu", "1113332222", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Tom", "Griffiths", "Tom@authors.csusm.edu", "1113332222", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Michael", "Lewis", "ML@authors.csusm.edu", "3211234444", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Michael", "Lewis", "ML@authors.csusm.edu", "3211234444", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Farrar", "Straus", "Farrar@authors.csusm.edu", "1112223333", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Farrar", "Straus", "Farrar@authors.csusm.edu", "1112223333", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Tom", "Giroux", "Tom@authors.csusm.edu", "1113332222", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Tom", "Giroux", "Tom@authors.csusm.edu", "1113332222", 0);
 INSERT INTO `user` (`user_password`, `first_name`, `last_name`, `email_address`, `telephone_no`, `is_admin`)
-VALUES ("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Timothy", "firress", "ML@authors.csusm.edu", "3211234444", 0);
+VALUES ("$2a$05$uQE95EfrHTmxlo6GZou9UuOZ4eok59i.HoPpWjzEXgCWsA2kOjh3S", "Timothy", "firress", "ML@authors.csusm.edu", "3211234444", 0);
 
 
 INSERT INTO `ad` (`user_id`, `book_title`, `book_author`, `book_edition`, `book_isbn`, `listed_price`, `path_to_picture`, `ad_description`, `is_closed`)
