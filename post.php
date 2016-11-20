@@ -44,7 +44,7 @@ include('assets/php/head.php');
 			<?php endif; ?>
 
 			<label for="book-title-field">Book Title:</label><br>
-			<input id="book-title-field" type="text" name="book_title" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_title'] ); ?>"><br>
+			<input id="book-title-field" type="text" name="book_title" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" autofocus><br>
 
 			<label for="book-author-field">Author(s):</label><br>
 			<input id="book-author-field" type="text" name="book_author" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_author'] ); ?>"><br>

@@ -25,7 +25,7 @@ if( isset( $_GET['signout'] ) ){
 		<form class="sign-in-form" action="assets/php/sign-in.php" method="post">
 
 			<label for="email-field">Email:</label><br>
-			<input id="email-field" type="text" name="email" required placeholder="me@example.com"><br>
+			<input id="email-field" type="text" name="email" required placeholder="me@example.com" autofocus><br>
 
 			<label for="password"></label>Password:<br>
 			<input id="password" type="password" name="password" required><br>

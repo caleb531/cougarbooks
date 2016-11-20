@@ -16,7 +16,7 @@ include('assets/php/head.php');
 		<form class="register-form" action="assets/php/register.php" method="post">
 
 			<label for="first-name-field">First Name:</label><br>
-			<input id="first-name-field" type="text" name="first_name" required><br>
+			<input id="first-name-field" type="text" name="first_name" required autofocus><br>
 
 			<label for="last-name-field">Last Name:</label><br>
 			<input id="last-name-field" type="text" name="last_name" required><br>
