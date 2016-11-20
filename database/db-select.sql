@@ -16,6 +16,6 @@ SELECT book_title, book_author, book_isbn, listed_price, ad_description
 FROM ad
 WHERE book_title LIKE '%science%';
 
-select book_title, book_author, book_isbn, listed_price, ad_description
+select book_title, book_edition, book_author, book_isbn, listed_price, ad_description
 from ad
 where creation_time >= ('2016-11-20 00:00:00');
