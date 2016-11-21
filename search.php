@@ -12,37 +12,27 @@ include('assets/php/head.php');
 	<main>
 
 		<?php
-			$page_index = isset($_GET['page']) ? $_GET['page'] : 0;
-			$search_word = isset($_GET['q']) ? $_GET['q'] : 'Nothing';
+			$page_index = isset($_GET['page']) ? htmlspecialchars( $_GET['page'] ) : 0;
+			$search_word = isset($_GET['q']) ? htmlspecialchars( $_GET['q'] ) : 'Nothing';
+
+
 		?>
 
 		<h1>Search a book</h1>
-		<p>Your search result for '<?php echo htmlspecialchars( $search_word ); ?>'</p>
-		<p>Page : <?php echo htmlspecialchars( $page_index ); ?></p>
+		<p>Your search result for '<?php echo $search_word ?>'</p>
 
 		<?php
-			$books = $db->fetchAll(
-					"SELECT book_title, book_author, book_isbn, listed_price, ad_description ".
-					"FROM ad ".
-					"WHERE book_title ".
-					"LIKE '%:search%' ".
-					"LIMIT :page,11"
-				,
-				array(
-					'page' => $page_index,
-	        		'search' => $search_word
-	    		)
-			);
+			$page_length = 4;
+			$books = $db->get_ads_by_keyword($search_word, $page_index, $page_length);
 		?>
 
         <?php
-        	for ($i = 1; $i <= 10; $i++) {
+        	for ($i = 1; $i < count($books) && $i <= $page_length; $i++) {
 				$book = $books[$i];
 		?>
-
-	        <a href="ad.php?ad=1">
+	        <?php echo "<a href='ad.php?ad=".$book['ad_id']."'>"; ?>
 				<div class="book-ad">
-					<img class="book-image" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
+					<?php echo "<img class='book-image' src='".$book['path_to_picture']."' alt='Preview' />"; ?>
 					<h3 class="book-title"><?php echo $book['book_title'] ?></h3>
 					<h2 class="book-price"><?php echo $book['listed_price'] ?></h2>
 					<div class="book-authors"><span class="book-attr-label">Author(s):</span> <?php echo $book['book_author'] ?></div>
@@ -50,10 +40,16 @@ include('assets/php/head.php');
 				</div>
 			</a>
 
-        <?php
+        <?php } ?>
+
+    	<p>Page : <?php echo ($page_index + 1) ?></p>
+		<?php
+    		if ($page_index > 0) {
+    			echo '<a href="search.php?q='.$search_word.'&page='.($page_index-1).'"> <<< Previous Page <<<</a>';
     		}
-    		if (count($books) == 11) {
-    			echo '<a href="search.php?q='.$search_word.'&page='.$page_index.'">Next Page</a>';
+    		if (($page_index > 0) && (count($books) == $page_length + 1)) { echo ' | '; }
+    		if (count($books) == $page_length + 1) {
+    			echo '<a href="search.php?q='.$search_word.'&page='.($page_index+1).'"> >>> Next Page >>></a>';
     		}
     	?>
 
