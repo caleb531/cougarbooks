@@ -6,7 +6,8 @@
 var validationMessages = {
 	'email-field': 'Please enter a valid email address',
 	'phone-field': 'Please enter a valid phone number in the form: xxx-xxx-xxxx',
-	'isbn-field': 'Please enter the 10- or 13-digit ISBN of your textbook'
+	'isbn-field': 'Please enter the 10- or 13-digit ISBN of your textbook',
+	'book-price-field': 'Please enter a dollar amount like $50 or $19.99'
 };
 
 // Enable validation for a form field DOM element using the given message
