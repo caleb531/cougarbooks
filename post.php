@@ -69,7 +69,8 @@ include('assets/php/head.php');
 
 					<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
 						<label>Book Photo:</label><br>
-						<img src="<?php echo AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture']; ?>" alt="<?php echo $ad['book_title']; ?>" class="book-image" /><br>
+						<?php display_ad_image( $ad ); ?>
+						<br>
 						<label for="book-image-field">New Photo:</label><br>
 					<?php else: ?>
 						<label for="book-image-field">Book Photo:</label><br>

@@ -31,16 +31,7 @@ include('assets/php/head.php');
 
 				<?php foreach ( $ads as $ad ): ?>
 
-					<div class="book-ad">
-						<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
-							<img class="book-image" src="<?php echo AD_PHOTO_PATH_BASE . '/' . htmlspecialchars( $ad['path_to_picture'] ); ?>" alt="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" />
-						<?php endif; ?>
-						<h3 class="book-title"><a href="ad.php?ad=<?php echo htmlspecialchars( $ad['ad_id'] ); ?>"><?php echo htmlspecialchars( $ad['book_title'] ); ?></a></h3>
-						<div class="book-authors"><span class="book-attr-label">Author(s):</span> <?php echo htmlspecialchars( $ad['book_author'] ); ?></div>
-						<div class="book-edition"><span class="book-attr-label">Edition:</span> <?php echo htmlspecialchars( $ad['book_edition'] ); ?></div>
-						<div class="book-price"><span class="book-attr-label">Price:</span> <?php echo htmlspecialchars( $ad['listed_price'] ); ?></div>
-						<p class="book-description"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></p>
-					</div>
+					<?php display_ad( $ad ); ?>
 
 				<?php endforeach; ?>
 

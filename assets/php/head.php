@@ -3,6 +3,7 @@ session_start();
 include('assets/php/constants.php');
 // Add database and user authentication logic here
 include('assets/php/database.php');
+include('assets/php/ads.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
