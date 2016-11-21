@@ -17,26 +17,27 @@ include('assets/php/head.php');
 
 		<h1>My Ads</h1>
 
+		<?php
+		// Retrieve all ads created by the signed-in user
+		$query = 'SELECT * FROM ad WHERE user_id = :user_id';
+		$ads = $db->fetchAll( $query, array(
+			'user_id' => $_SESSION['user_id']
+		) );
+		$num_ads = count( $ads );
+		?>
+
+		<?php if ( $num_ads == 0 ): ?>
+			<p>There are no ads to display.</p>
+		<?php elseif ( $num_ads == 1 ): ?>
+			<p>Displaying 1 ad.</p>
+		<?php else: ?>
+			<p>Displaying <?php echo $num_ads; ?> ads.</p>
+		<?php endif; ?>
+
 		<div id="books">
-
-			<div class="book-ad">
-				<img class="book-image" src="http://contactcrucial.com/wp-content/uploads/2016/10/img-not-available.jpg" alt="book-of-life" />
-				<h3 class="book-title"><a href="ad.php?ad=4">Book of Life</a></h3>
-				<div class="book-authors"><span class="book-attr-label">Author(s):</span> Kevin Mata</div>
-				<div class="book-edition"><span class="book-attr-label">Edition:</span> 9</div>
-				<div class="book-price"><span class="book-attr-label">Price:</span> $40.00</div>
-				<p class="book-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
-			</div>
-
-			<div class="book-ad">
-				<img class="book-image" src="http://www.stroustrup.com/4thEnglish.JPG" alt="cplusplus-book" />
-				<h3 class="book-title"><a href="ad.php?ad=2">C++ Programming</a></h3>
-				<div class="book-authors"><span class="book-attr-label">Author(s):</span> John Doe</div>
-				<div class="book-edition"><span class="book-attr-label">Edition:</span> 3</div>
-				<div class="book-price"><span class="book-attr-label">Price:</span> $70.00</div>
-				<p class="book-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
-			</div>
-
+			<?php foreach ( $ads as $ad ): ?>
+				<?php display_ad( $ad ); ?>
+			<?php endforeach; ?>
 		</div>
 
 	</main>
