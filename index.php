@@ -23,41 +23,32 @@ include('assets/php/head.php');
 
 		<div id="books">
 
-			<div class="book-ad">
-				<img class="book-image" src="http://akamaicovers.oreilly.com/images/9780596158118/cat.gif" alt="python-book" />
-				<h3 class="book-title"><a href="ad.php?ad=1">Programming Python</a></h3>
-				<div class="book-authors"><span class="book-attr-label">Author(s):</span> Mary Ann</div>
-				<div class="book-edition"><span class="book-attr-label">Edition:</span> 5</div>
-				<div class="book-price"><span class="book-attr-label">Price:</span> $50.00</div>
-				<p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut...</p>
-			</div>
+			<?php
+			$ads = $db->fetchAll( 'SELECT ad_id, book_title, book_author, book_edition, listed_price, path_to_picture, ad_description, creation_time FROM ad WHERE is_closed = 0 ORDER BY listed_price DESC LIMIT 10', array() );
+			?>
 
-			<div class="book-ad">
-				<img class="book-image" src="http://www.stroustrup.com/4thEnglish.JPG" alt="cplusplus-book" />
-				<h3 class="book-title"><a href="ad.php?ad=2">C++ Programming</a></h3>
-				<div class="book-authors"><span class="book-attr-label">Author(s):</span> John Doe</div>
-				<div class="book-edition"><span class="book-attr-label">Edition:</span> 3</div>
-				<div class="book-price"><span class="book-attr-label">Price:</span> $70.00</div>
-				<p class="book-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
-			</div>
+			<?php if ( count( $ads ) > 0 ): ?>
 
-			<div class="book-ad">
-				<img class="book-image" src="http://math.mit.edu/~gs/linearalgebra/linearalgebra5_Front.jpg" alt="linear-algebra" />
-				<h3 class="book-title"><a href="ad.php?ad=3">Linear Algebra</a></h3>
-				<div class="book-authors"><span class="book-attr-label">Author(s):</span> Gilbert Strang</div>
-				<div class="book-edition"><span class="book-attr-label">Edition:</span> 7</div>
-				<div class="book-price"><span class="book-attr-label">Price:</span> $40.00</div>
-				<p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut...</p>
-			</div>
+				<?php foreach ( $ads as $ad ): ?>
 
-			<div class="book-ad">
-				<img class="book-image" src="http://contactcrucial.com/wp-content/uploads/2016/10/img-not-available.jpg" alt="book-of-life" />
-				<h3 class="book-title"><a href="ad.php?ad=4">Book of Life</a></h3>
-				<div class="book-authors"><span class="book-attr-label">Author(s):</span> Kevin Mata</div>
-				<div class="book-edition"><span class="book-attr-label">Edition:</span> 9</div>
-				<div class="book-price"><span class="book-attr-label">Price:</span> $40.00</div>
-				<p class="book-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
-			</div>
+					<div class="book-ad">
+						<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
+							<img class="book-image" src="<?php echo AD_PHOTO_PATH_BASE . '/' . htmlspecialchars( $ad['path_to_picture'] ); ?>" alt="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" />
+						<?php endif; ?>
+						<h3 class="book-title"><a href="ad.php?ad=<?php echo htmlspecialchars( $ad['ad_id'] ); ?>"><?php echo htmlspecialchars( $ad['book_title'] ); ?></a></h3>
+						<div class="book-authors"><span class="book-attr-label">Author(s):</span> <?php echo htmlspecialchars( $ad['book_author'] ); ?></div>
+						<div class="book-edition"><span class="book-attr-label">Edition:</span> <?php echo htmlspecialchars( $ad['book_edition'] ); ?></div>
+						<div class="book-price"><span class="book-attr-label">Price:</span> <?php echo htmlspecialchars( $ad['listed_price'] ); ?></div>
+						<p class="book-description"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></p>
+					</div>
+
+				<?php endforeach; ?>
+
+			<?php else: ?>
+
+				<p>There are no new ads to show!</p>
+
+			<?php endif; ?>
 
 		</div>
 
