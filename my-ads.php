@@ -19,7 +19,7 @@ include('assets/php/head.php');
 
 		<?php
 		// Retrieve all ads created by the signed-in user
-		$query = 'SELECT * FROM ad WHERE user_id = :user_id';
+		$query = 'SELECT * FROM ad WHERE user_id = :user_id ORDER BY creation_time DESC';
 		$ads = $db->fetchAll( $query, array(
 			'user_id' => $_SESSION['user_id']
 		) );
