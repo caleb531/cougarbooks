@@ -127,10 +127,11 @@ class Database {
 	public function get_ads_by_keyword( $keyword, $page = 0, $page_length = 10) {
 		$query = "SELECT *
 			FROM ad
-			WHERE book_title LIKE :search
-			OR book_author Like :search
-			OR book_isbn Like :search
-			OR ad_description Like :search
+			WHERE is_closed = 0
+			AND (book_title LIKE :search
+				OR book_author Like :search
+				OR book_isbn Like :search
+				OR ad_description Like :search)
 			LIMIT " . ($page * $page_length) . ", " . $page_length;
 		$ads = $this->fetchAll( $query, array(
 	    	'search' => '%' . $keyword . '%'
