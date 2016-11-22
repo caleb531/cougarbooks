@@ -12,7 +12,10 @@ function display_ad( $ad ) {
 
 	?>
 
-	<div class="book-ad">
+	<div class="book-ad<?php echo $ad['is_closed'] ? ' closed' : ''; ?>">
+		<?php if ( $ad['is_closed'] ): ?>
+			<span class="closed-badge">Closed</span>
+		<?php endif; ?>
 		<?php if ( ! empty( $ad['path_to_picture'] ) ): ?>
 			<?php display_ad_image( $ad ); ?>
 		<?php endif; ?>
