@@ -19,8 +19,8 @@ function display_ad( $ad ) {
 		<h3 class="book-title"><a href="ad.php?ad=<?php echo htmlspecialchars( $ad['ad_id'] ); ?>"><?php echo htmlspecialchars( $ad['book_title'] ); ?></a></h3>
 		<div class="book-authors"><span class="book-attr-label">Author(s):</span> <?php echo htmlspecialchars( $ad['book_author'] ); ?></div>
 		<div class="book-edition"><span class="book-attr-label">Edition:</span> <?php echo htmlspecialchars( $ad['book_edition'] ); ?></div>
+		<div class="book-isbn"><span class="book-attr-label">ISBN:</span> <?php echo htmlspecialchars( $ad['book_isbn'] ); ?></div>
 		<div class="book-price"><span class="book-attr-label">Price:</span> <?php echo htmlspecialchars( $ad['listed_price'] ); ?></div>
-		<p class="book-description"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></p>
 	</div>
 
 	<?php

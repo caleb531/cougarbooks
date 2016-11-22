@@ -24,7 +24,7 @@ include('assets/php/head.php');
 		<div id="books">
 
 			<?php
-			$ads = $db->fetchAll( 'SELECT ad_id, book_title, book_author, book_edition, listed_price, path_to_picture, ad_description, creation_time FROM ad WHERE is_closed = 0 ORDER BY listed_price DESC LIMIT 10', array() );
+			$ads = $db->fetchAll( 'SELECT * FROM ad WHERE is_closed = 0 ORDER BY listed_price DESC LIMIT 10', array() );
 			?>
 
 			<?php if ( count( $ads ) > 0 ): ?>
