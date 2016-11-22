@@ -1,4 +1,5 @@
 <?php
+ini_set( 'display_errors', '1' );
 include('assets/php/head.php');
 ?>
 <title>CougarBooks | Search</title>
@@ -13,45 +14,30 @@ include('assets/php/head.php');
 
 		<?php
 			$page_index = isset($_GET['page']) ? htmlspecialchars( $_GET['page'] ) : 0;
-			$search_word = isset($_GET['q']) ? htmlspecialchars( $_GET['q'] ) : 'Nothing';
-
-
+			$search_word = isset($_GET['q']) ? htmlspecialchars( $_GET['q'] ) : '';
 		?>
 
-		<h1>Search a book</h1>
-		<p>Your search result for '<?php echo $search_word ?>'</p>
+		<h1>Search for textbooks</h1>
+		<p>Your search results for '<?php echo $search_word ?>'</p>
 
 		<?php
 			$page_length = 4;
-			$books = $db->get_ads_by_keyword($search_word, $page_index, $page_length);
+			$ads = $db->get_ads_by_keyword($search_word, $page_index, $page_length);
 		?>
 
-        <?php
-        	for ($i = 1; $i < count($books) && $i <= $page_length; $i++) {
-				$book = $books[$i];
-		?>
-	        <?php echo "<a href='ad.php?ad=".$book['ad_id']."'>"; ?>
-				<div class="book-ad">
-					<?php echo "<img class='book-image' src='".$book['path_to_picture']."' alt='Preview' />"; ?>
-					<h3 class="book-title"><?php echo $book['book_title'] ?></h3>
-					<h2 class="book-price"><?php echo $book['listed_price'] ?></h2>
-					<div class="book-authors"><span class="book-attr-label">Author(s):</span> <?php echo $book['book_author'] ?></div>
-					<p class="book-description"><?php echo substr($book['ad_description'],0, 200) ?>...</p>
-				</div>
-			</a>
+        <?php foreach ( $ads as $ad ): ?>
+			<?php display_ad( $ad ); ?>
+		<?php endforeach; ?>
 
-        <?php } ?>
-
-    	<p>Page : <?php echo ($page_index + 1) ?></p>
-		<?php
-    		if ($page_index > 0) {
-    			echo '<a href="search.php?q='.$search_word.'&page='.($page_index-1).'"> <<< Previous Page <<<</a>';
-    		}
-    		if (($page_index > 0) && (count($books) == $page_length + 1)) { echo ' | '; }
-    		if (count($books) == $page_length + 1) {
-    			echo '<a href="search.php?q='.$search_word.'&page='.($page_index+1).'"> >>> Next Page >>></a>';
-    		}
-    	?>
+		<p>
+			<?php if ($page_index > 0): ?>
+				<a href="search.php?q=<?php echo $search_word; ?>&amp;page=<?php echo $page_index - 1; ?>">Previous Page</a> |
+			<?php endif; ?>
+			Page <?php echo ($page_index + 1) ?>
+			<?php if (count($ads) == $page_length): ?>
+				| <a href="search.php?q=<?php echo $search_word; ?>&amp;page=<?php echo $page_index + 1; ?>">Next Page</a>
+			<?php endif; ?>
+		</p>
 
 	</main>
 	<?php

@@ -123,21 +123,19 @@ class Database {
 		}
 	}
 
+	// Retrieve the ads matching the given search keyword
 	public function get_ads_by_keyword( $keyword, $page = 0, $page_length = 10) {
-		$query = "SELECT ad_id, book_title, book_author, book_isbn, listed_price, ad_description, path_to_picture ".
-				"FROM ad ".
-				"WHERE book_title LIKE :search ".
-				"OR book_author Like :search ".
-				"OR book_isbn Like :search ".
-				"OR ad_description Like :search ".
-				"LIMIT :page,".($page_length + 1);
-		$books = $this->fetchAll( $query,
-			array(
-				'page' => ''.($page * $page_length),
-	    		'search' => '%'.$keyword.'%'
-			)
-		);
-		return $books;
+		$query = "SELECT *
+			FROM ad
+			WHERE book_title LIKE :search
+			OR book_author Like :search
+			OR book_isbn Like :search
+			OR ad_description Like :search
+			LIMIT " . ($page * $page_length) . ", " . $page_length;
+		$ads = $this->fetchAll( $query, array(
+	    	'search' => '%' . $keyword . '%'
+		) );
+		return $ads;
 	}
 
 }
