@@ -60,7 +60,7 @@ include('assets/php/head.php');
 					<input id="isbn-field" type="text" name="book_isbn" required pattern="\s*\d(-?\d){9,12}\s*" maxlength="17" placeholder="10-digit or 13-digit ISBN" value="<?php echo htmlspecialchars( $ad['book_isbn'] ); ?>"><br>
 
 					<label for="book-price-field">Price:</label><br>
-					<input id="book-price-field" type="text" name="listed_price" required pattern="\s*$\d{2}(\.\d{2})?\s*" maxlength="30" placeholder="$0.00" value="<?php echo $ad['listed_price']; ?>"><br>
+					<input id="book-price-field" type="text" name="listed_price" required pattern="\s*\$\d{2}(\.\d{2})?\s*" maxlength="30" placeholder="$0.00" value="<?php echo $ad['listed_price']; ?>"><br>
 
 					<label for="ad-description">Book Description:</label><br>
 					<textarea name="ad_description" id="ad-description" placeholder="200 characters or less" maxlength="200"><?php echo htmlspecialchars( $ad['ad_description'] ); ?></textarea><br>
