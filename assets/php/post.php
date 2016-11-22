@@ -4,7 +4,7 @@ include('constants.php');
 include('database.php');
 include('upload.php');
 
-// Format thte book ISBN by removing dashes
+// Format the book ISBN by removing dashes
 function cb_format_book_isbn( $book_isbn ) {
 	return trim( str_replace( '-', '', $book_isbn ) );
 }

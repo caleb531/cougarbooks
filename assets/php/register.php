@@ -2,7 +2,7 @@
 session_start();
 include('database.php');
 
-// Format thte book ISBN by removing dashes
+// Format the phone number by removing dashes
 function cb_format_telephone_no( $telephone_num ) {
 	return trim( str_replace( '-', '', $telephone_num ) );
 }
