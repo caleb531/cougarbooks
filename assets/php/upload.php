@@ -10,7 +10,7 @@ function upload_book_image( $ad_id ) {
 
 		$upload_file_ext = pathinfo( $_FILES['book_image']['name'] )['extension'];
 		$upload_file_full_name = "ad-$ad_id.$upload_file_ext";
-		$upload_file_rel_path = AD_PHOTO_PATH_BASE . '/' . $upload_file_full_name;
+		$upload_file_rel_path = CB_AD_PHOTO_PATH_BASE . '/' . $upload_file_full_name;
 		// The absolute path to the file on the server
 		$upload_file_abs_path = dirname( __FILE__, 3 ) . '/' . $upload_file_rel_path;
 
@@ -44,7 +44,7 @@ function delete_book_image( $ad_id ) {
 	$ad = $db->fetchOne( $query, array(
 		'ad_id' => $ad_id
 	) );
-	$book_image_path = $_SERVER['DOCUMENT_ROOT'] . '/' . AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture'];
+	$book_image_path = $_SERVER['DOCUMENT_ROOT'] . '/' . CB_AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture'];
 	// // Only delete image if ad and the corresponding image file exist
 	if ( ! empty( $ad ) && ! empty( $ad['path_to_picture'] ) && file_exists( $book_image_path ) ) {
 		unlink( $book_image_path );

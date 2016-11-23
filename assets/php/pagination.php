@@ -2,7 +2,7 @@
 
 // Display navigation controls (next page, previous page, etc.) for paginated
 // areas of the site (e.g. My Ads and Search)
-function display_pagination_controls( $num_results, $page_index, $page_length = PAGE_LENGTH ) {
+function display_pagination_controls( $num_results, $page_index, $page_length = CB_PAGE_LENGTH ) {
 	$query_param = isset( $_GET['q'] ) ? "query={$_GET['q']}&" : ''
 	?>
 	<p>

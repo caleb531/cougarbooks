@@ -3,7 +3,7 @@
 // Displays the <img> element for the given ad object
 function display_ad_image( $ad ) {
 	?>
-	<img class="book-image" src="<?php echo AD_PHOTO_PATH_BASE . '/' . htmlspecialchars( $ad['path_to_picture'] ); ?>" alt="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" />
+	<img class="book-image" src="<?php echo CB_AD_PHOTO_PATH_BASE . '/' . htmlspecialchars( $ad['path_to_picture'] ); ?>" alt="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" />
 	<?php
 }
 
