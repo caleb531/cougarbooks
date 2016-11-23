@@ -44,12 +44,14 @@ function addAllFormValidation() {
 // their campus username and the field will add on @cougars.csusm.edu
 function addCampusUsernameShortcut() {
 	var emailField = document.getElementById('email-field');
-	emailField.addEventListener('change', function () {
-		// If current value is campus username
-		if (/^\s*([a-z]{1,5}\d{3})\s*$/.test(emailField.value)) {
-			emailField.value = emailField.value.replace(/\s+/g, '') + '@cougars.csusm.edu';
-		}
-	});
+	if (emailField) {
+		emailField.addEventListener('change', function () {
+			// If current value is campus username
+			if (/^\s*([a-z]{1,5}\d{3})\s*$/.test(emailField.value)) {
+				emailField.value = emailField.value.replace(/\s+/g, '') + '@cougars.csusm.edu';
+			}
+		});
+	}
 }
 
 addAllFormValidation();
