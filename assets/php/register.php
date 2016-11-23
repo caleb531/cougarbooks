@@ -78,7 +78,7 @@ if( ! empty( $_POST['submit'] ) ){
 		header("Location: ../../my-ads.php");
 
 	}else{
-		header("Location: ../../register.php?password_unmatch=1");
+		header("Location: ../../register.php?password_mismatch=1");
 	}
 
 

@@ -11,6 +11,10 @@ include('assets/php/head.php');
 
 	<main>
 
+		<?php if ( isset( $_GET['password_mismatch'] ) ): ?>
+			<div class="notification warning">Passwords do not match</div>
+		<?php endif; ?>
+
 		<h1>Register</h1>
 
 		<form class="register-form" action="assets/php/register.php" method="post">
