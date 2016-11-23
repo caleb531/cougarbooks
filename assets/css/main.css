@@ -190,7 +190,8 @@ button:focus {
 input[type='file'] {
 	margin: 6px 0;
 }
-button.warning {
+/* Generic styling for any kind of warning element */
+.warning {
 	background-color: #c33;
 }
 

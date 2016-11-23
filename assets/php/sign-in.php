@@ -22,7 +22,7 @@ if( isset( $_POST['submit'] ) ){
 		header("Location: ../../my-ads.php");
 	}else{
 		// inform the user their login was incorrect
-		header("Location: ../../sign-in.php?loginFailed=1");
+		header("Location: ../../sign-in.php?fail=1");
 	}
 
 }

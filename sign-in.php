@@ -20,6 +20,10 @@ if( isset( $_GET['signout'] ) ){
 			<div class="notification">You have been signed out.</div>
 		<?php endif; ?>
 
+		<?php if ( isset( $_GET['fail'] ) ): ?>
+			<div class="notification warning">Incorrect email or password. Please try again.</div>
+		<?php endif; ?>
+
 		<h1>Sign In</h1>
 
 		<form class="sign-in-form" action="assets/php/sign-in.php" method="post">
@@ -33,13 +37,6 @@ if( isset( $_GET['signout'] ) ){
 			<button type="submit" name="submit">Sign In</button>
 
 		</form>
-
-		<?php
-		// prompt the user to let them know their login failed
-		if( isset( $_GET['loginFailed'] ) == 1 ){
-			echo "<p>Incorrect email or password. Please try again.</p>";
-		}
-		?>
 
 	</main>
 	<?php
