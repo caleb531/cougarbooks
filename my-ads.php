@@ -18,27 +18,27 @@ include('assets/php/head.php');
 		<h1>My Ads</h1>
 
 		<?php
+		$page_index = isset($_GET['page']) ? htmlspecialchars( $_GET['page'] ) : 0;
 		// Retrieve all ads created by the signed-in user
-		$query = 'SELECT * FROM ad WHERE user_id = :user_id ORDER BY creation_time DESC';
-		$ads = $db->fetchAll( $query, array(
-			'user_id' => $_SESSION['user_id']
-		) );
+		// WHERE user_id = :user_id
+		$ads = $db->get_ads_by_user( $_SESSION['user_id'], $page_index );
 		$num_ads = count( $ads );
 		?>
 
 		<?php if ( $num_ads == 0 ): ?>
 			<p>There are no ads to display.</p>
-		<?php elseif ( $num_ads == 1 ): ?>
-			<p>Displaying 1 ad.</p>
-		<?php else: ?>
-			<p>Displaying <?php echo $num_ads; ?> ads.</p>
 		<?php endif; ?>
 
 		<div id="books">
-			<?php foreach ( $ads as $ad ): ?>
-				<?php display_ad( $ad ); ?>
+			<?php foreach ( $ads as $ad_index => $ad ): ?>
+				<?php if ( $ad_index < $num_ads ): ?>
+					<?php display_ad( $ad ); ?>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
+
+		<?php include( 'assets/php/pagination.php' ); ?>
+		<?php display_pagination_controls( $num_ads, $page_index ); ?>
 
 	</main>
 	<?php
