@@ -37,7 +37,7 @@ include('assets/php/head.php');
 		}
 		?>
 
-		<?php if ( isset( $_SESSION['signed_in'] ) ): ?>
+		<?php if ( $_SESSION['signed_in'] === true ): ?>
 
 			<?php if ( $db->allowed_to_edit_ad( $_GET['ad'] ) ): ?>
 

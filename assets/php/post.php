@@ -15,7 +15,7 @@ function cb_format_listed_price( $listed_price ) {
 }
 
 // Only allow signed-in users to post or update ads
-if ( ! isset( $_SESSION['signed_in'] ) || ! $db->allowed_to_edit_ad( $_POST['ad_id'] ) ) {
+if ( $_SESSION['signed_in'] === false || ! $db->allowed_to_edit_ad( $_POST['ad_id'] ) ) {
 	die('Cannot post ad: authentication failed');
 }
 

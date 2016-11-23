@@ -17,7 +17,7 @@ if( isset( $_POST['submit'] ) ){
 
 	$db->sign_in($email, $password);
 
-	if( isset( $_SESSION['signed_in'] ) ){
+	if( $_SESSION['signed_in'] === true ){
 		// redirect to signed in users ads
 		header("Location: ../../my-ads.php");
 	}else{
