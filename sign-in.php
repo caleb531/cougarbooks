@@ -28,10 +28,8 @@ if( isset( $_GET['signout'] ) ){
 
 		<form class="sign-in-form" action="assets/php/sign-in.php" method="post">
 
-			<label for="email-field">Email:</label><br>
-			<input id="email-field" type="text" name="email" required placeholder="me@example.com" pattern="\s*([^@]+)@([^@]+)\s*" autofocus><br>
-
-			<p class="note">If you registered with your campus email (@cougars.csusm.edu), you can enter your campus username instead of the full email.</p>
+			<label for="email-field">Email or campus username:</label><br>
+			<input id="email-field" type="text" name="email" required pattern="\s*([^@]+)@([^@]+)\s*" autofocus><br>
 
 			<label for="password"></label>Password:<br>
 			<input id="password" type="password" name="password" required><br>
