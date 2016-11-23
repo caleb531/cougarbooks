@@ -25,8 +25,8 @@ function display_ad( $ad ) {
 			<div class="book-edition"><span class="book-attr-label">Edition:</span> <?php echo htmlspecialchars( $ad['book_edition'] ); ?></div>
 		<?php endif; ?>
 		<div class="book-isbn"><span class="book-attr-label">ISBN:</span> <?php echo htmlspecialchars( $ad['book_isbn'] ); ?></div>
-		<div class="book-price"><span class="book-attr-label">Price:</span> $<?php echo htmlspecialchars( $ad['listed_price'] ); ?></div>
 		<div class="ad-post-date"><span class="book-attr-label">Posted:</span> <?php echo strftime( '%b %d, %Y @ %-I:%M %p', strtotime( $ad['creation_time'] ) ); ?></div>
+		<div class="book-price">$<?php echo htmlspecialchars( $ad['listed_price'] ); ?></div>
 	</div>
 
 	<?php
