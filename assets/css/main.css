@@ -203,13 +203,20 @@ main {
 }
 form {
 	display: inline-block;
+	width: 300px;
 	text-align: left;
 }
 form textarea,
 form input[type="text"],
 form input[type="password"],
 form input[type="file"] {
-	width: 300px;
+	width: 100%;
+}
+
+/* Helpful notes and tips for users */
+.note {
+ font-size: 12px;
+ color: #666;
 }
 
 /* Textbook ad entries */

@@ -31,6 +31,8 @@ if( isset( $_GET['signout'] ) ){
 			<label for="email-field">Email:</label><br>
 			<input id="email-field" type="text" name="email" required placeholder="me@example.com" pattern="\s*([^@]+)@([^@]+)\s*" autofocus><br>
 
+			<p class="note">If you registered with your campus email (@cougars.csusm.edu), you can just enter your campus username to sign in.</p>
+
 			<label for="password"></label>Password:<br>
 			<input id="password" type="password" name="password" required><br>
 
