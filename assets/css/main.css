@@ -216,12 +216,14 @@ form input[type="file"] {
 /* Textbook ad entries */
 
 .book-ad {
+	display: table;
+	width: 100%;
 	position: relative;
 	border-radius: 3px;
 	border: solid 1px #e3e3e3;
 	background-color: #f9f9f9;
-	min-height: 150px;
 	padding: 15px;
+	box-sizing: border-box;
 	text-align: left;
 	margin-bottom: 20px;
 }
@@ -232,17 +234,25 @@ form input[type="file"] {
 }
 /* Style book images within ad entries to have some space around them and be
 /* positioned to the side */
-.book-ad .book-image {
-	float: left;
+.book-ad .book-image-container {
+	display: table-cell;
 	position: relative;
-	margin: 5px;
-	margin-right: 15px;
+	width: 1%;
+	padding: 5px;
+	padding-right: 15px;
+	vertical-align: top;
+}
+
+/* Book information container to the right of image */
+.ad-info {
+	display: table-cell;
+	vertical-align: top;
 }
 
 .book-title {
 	margin: 0;
 }
-.book-price {
+.book-ad .book-price {
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
