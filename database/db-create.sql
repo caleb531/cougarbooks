@@ -1,6 +1,5 @@
-CREATE TABLE IF NOT EXISTS
-`user`
-(
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`(
 	`user_id` INTEGER AUTO_INCREMENT,
 	`user_password` CHAR(64) NOT NULL,
 	`first_name` VARCHAR(50) NOT NULL,
@@ -11,9 +10,8 @@ CREATE TABLE IF NOT EXISTS
 	PRIMARY KEY user_PK (`user_id`)
 );
 
-CREATE TABLE IF NOT EXISTS
-`ad`
-(
+DROP TABLE IF EXISTS `ad`;
+CREATE TABLE `ad`(
 	`ad_id` INTEGER AUTO_INCREMENT,
 	`user_id` INT NOT NULL,
 	`book_title` VARCHAR(100) NOT NULL,
