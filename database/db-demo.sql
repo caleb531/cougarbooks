@@ -20,7 +20,7 @@ INSERT INTO `user` (
 ) VALUES (
 	1,
 	-- password: swordfish
-	"$2a$05$cBu/gYoYH7g.jIAX1b/ISercU7fFUdHPsFbgDAhn8V/MxW5l6y3ka",
+	"cbe2dfa4e1d407a34cd5afbad1c798ff1d84e795f226888e3b8c7a3a74243099",
 	"John",
 	"Smith",
 	"smith001@cougars.csusm.edu",
@@ -29,7 +29,7 @@ INSERT INTO `user` (
 ), (
 	2,
 	-- password: redpanda
-	"$2a$05$CqUXT5NTgNTZn7FCQgMh.OS5.JL44NUKIRsHdkBzale4287vC8j0C",
+	"165616cc7f6998426a1811e25a1003fc5cb6b5d9225327a9e44b08d6d3b8ed50",
 	"Caleb",
 	"Evans",
 	"evans099@cougars.csusm.edu",

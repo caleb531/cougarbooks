@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS
 `user`
 (
 	`user_id` INTEGER AUTO_INCREMENT,
-	`user_password` CHAR(60) NOT NULL,
+	`user_password` CHAR(64) NOT NULL,
 	`first_name` VARCHAR(50) NOT NULL,
 	`last_name` VARCHAR(50) NOT NULL,
 	`email_address` VARCHAR(320) NOT NULL,

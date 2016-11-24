@@ -89,7 +89,7 @@ class Database {
 				'email_address' => $email
 			) );
 
-			if(hash_equals($user['user_password'], crypt($entered_password, $user['user_password'] ) ) ){
+			if($user['user_password'] === hash( 'sha256', $entered_password . trim( $email ) ) ){
 				$_SESSION['signed_in'] = true;
 				$_SESSION['user_id'] = $user['user_id'];
 				$_SESSION['is_admin'] = $user['is_admin'];
