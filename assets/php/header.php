@@ -8,8 +8,8 @@
 				<li><a href="account.php">Account</a></li>
 				<li><a href="sign-in.php?signout=1">Sign Out</a></li>
 			<?php else: ?>
-				<li><a href="register.php">Register</a></li>
-				<li><a href="sign-in.php">Sign In</a></li>
+				<li><a href="<?php echo cb_get_register_url(); ?>">Register</a></li>
+				<li><a href="<?php echo cb_get_signin_url(); ?>">Sign In</a></li>
 			<?php endif; ?>
 		</ul>
 	</nav>

@@ -97,7 +97,7 @@ include('assets/php/head.php');
 
 		<?php else: ?>
 
-			<p>You must <a href="sign-in.php">sign in</a> or <a href="register.php">register</a> to post new ads.</p>
+			<p>You must <a href="<?php echo cb_get_signin_url(); ?>">sign in</a> or <a href="<?php echo cb_get_register_url(); ?>">register</a> to post new ads.</p>
 
 		<?php endif; ?>
 

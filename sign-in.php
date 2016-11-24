@@ -28,6 +28,8 @@ if( isset( $_GET['signout'] ) ){
 
 		<form class="sign-in-form" action="assets/php/sign-in.php" method="post">
 
+			<?php cb_embed_redirect_field(); ?>
+
 			<label for="email-field">Email or campus username:</label><br>
 			<input id="email-field" type="text" name="email" required pattern="\s*([^@]+)@([^@]+)\s*" autofocus><br>
 

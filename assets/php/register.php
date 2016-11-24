@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('database.php');
+include('redirection.php');
 
 // Format the phone number by removing dashes
 function cb_format_telephone_no( $telephone_num ) {
@@ -75,10 +76,10 @@ if( ! empty( $_POST['submit'] ) ){
 		$_SESSION['signed_in'] = true;
 		$_SESSION['user_id'] = $new_user_id;
 
-		header("Location: ../../my-ads.php");
+		cb_redirect_user_signin( $_POST['redirect_path'] );
 
 	}else{
-		header("Location: ../../register.php?password_mismatch=1");
+		cb_redirect( '../../register.php?password_mismatch=1' );
 	}
 
 

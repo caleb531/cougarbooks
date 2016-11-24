@@ -19,6 +19,8 @@ include('assets/php/head.php');
 
 		<form class="register-form" action="assets/php/register.php" method="post">
 
+			<?php cb_embed_redirect_field(); ?>
+
 			<label for="first-name-field">First Name:</label><br>
 			<input id="first-name-field" type="text" name="first_name" required autofocus><br>
 
