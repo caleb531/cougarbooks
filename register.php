@@ -11,6 +11,10 @@ include('assets/php/head.php');
 
 	<main>
 
+		<?php if ( isset( $_GET['email_taken'] ) ): ?>
+			<div class="notification warning">Email address already taken</div>
+		<?php endif; ?>
+
 		<?php if ( isset( $_GET['password_mismatch'] ) ): ?>
 			<div class="notification warning">Passwords do not match</div>
 		<?php endif; ?>
