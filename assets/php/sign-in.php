@@ -24,7 +24,7 @@ if( isset( $_POST['submit'] ) ){
 
 	}else{
 		// inform the user their login was incorrect
-		cb_redirect( '../../sign-in.php?fail=1' );
+		cb_redirect( '../../sign-in.php?fail=1&redirect=' . urlencode( $_POST['redirect_path'] ) );
 	}
 
 }

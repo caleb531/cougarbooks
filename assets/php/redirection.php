@@ -22,7 +22,7 @@ function cb_redirect( $redirect_path ) {
 function cb_redirect_user_signin( $redirect_path ) {
 	if ( ! empty( $redirect_path ) ) {
 		// redirect to page that the user was on before signing in
-		cb_redirect( urldecode( $redirect_path ) );
+		cb_redirect( $redirect_path );
 	} else {
 		// redirect to My Ads page if explicit redirect URL is not provided
 		cb_redirect( '../../my-ads.php' );

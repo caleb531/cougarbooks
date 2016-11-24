@@ -91,12 +91,12 @@ if( ! empty( $_POST['submit'] ) ){
 		} else {
 			// Otherwise, inform user that the entered email is taken
 
-			cb_redirect( '../../register.php?email_taken=1' );
+			cb_redirect( '../../register.php?email_taken=1&redirect=' . urlencode( $_POST['redirect_path'] ) );
 
 		}
 
 	}else{
-		cb_redirect( '../../register.php?password_mismatch=1' );
+		cb_redirect( '../../register.php?password_mismatch=1&redirect=' . urlencode( $_POST['redirect_path'] ) );
 	}
 
 
