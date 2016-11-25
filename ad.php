@@ -43,6 +43,10 @@ $ad = $db->get_ad( $_GET['ad'] );
 
 				<div class="ad-post-date"><span class="book-attr-label">Posted:</span> <?php echo strftime( '%b %d, %Y @ %-I:%M %p', strtotime( $ad['creation_time'] ) ); ?></div>
 
+				<br>
+
+				<div class="ad-description"><?php echo str_replace( "\n", '<br>', htmlspecialchars( $ad['ad_description'] ) ); ?></div>
+
 			</div>
 
 		</div>
