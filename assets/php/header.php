@@ -14,7 +14,7 @@
 		</ul>
 	</nav>
 	<form action="search.php" id="site-search-form">
-		<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" />
+		<input type="text" placeholder="Search textbook ads" name="q" id="site-search-field" value="<?php echo ! empty( $_GET['q'] ) ? $_GET['q'] : ''; ?>" />
 		<input type="submit" value="Submit" id="site-search-submit" />
 	</form>
 </header>
