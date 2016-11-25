@@ -1,15 +1,24 @@
 <?php
 
+// Append the current page path to the given URL (but only if the redirect page
+// is not the registration, sign-in, or sign-out page)
+function cb_add_redirect_param( $url ) {
+	if ( ! preg_match( '/(sign-in|register)/', $_SERVER['REQUEST_URI'] ) ) {
+		$url .= '?redirect=' . urlencode( $_SERVER['REQUEST_URI'] );
+	}
+	return $url;
+}
+
 // Retrieves the URL to the registration page (redirecting to the current page
 // after submitting the form)
 function cb_get_register_url() {
-	return 'register.php?redirect=' . urlencode( $_SERVER['REQUEST_URI'] );
+	return cb_add_redirect_param( 'register.php' );
 }
 
 // Retrieves the URL to the sign-in page (redirecting to the current page
 // after submitting the form)
 function cb_get_signin_url() {
-	return 'sign-in.php?redirect=' . urlencode( $_SERVER['REQUEST_URI'] );
+	return cb_add_redirect_param( 'sign-in.php' );
 }
 
 // Redirect to a different page
