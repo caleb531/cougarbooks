@@ -50,7 +50,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 		delete_book_image( $_POST['ad_id'] );
 		upload_book_image( $_POST['ad_id'] );
 		// Redirect to updated ad page
-		cb_redirect( "../../post.php?ad={$_POST['ad_id']}" );
+		cb_redirect( "../../ad.php?ad={$_POST['ad_id']}" );
 
 	} else if ( ! empty( $_POST['close'] ) ) {
 
@@ -89,7 +89,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 	// Upload any provided book photo to server
 	upload_book_image( $new_ad_id );
 	// Redirect to page for new ad
-	cb_redirect( "../../post.php?ad=$new_ad_id" );
+	cb_redirect( "../../ad.php?ad=$new_ad_id" );
 
 }
 
