@@ -107,7 +107,7 @@ INSERT INTO `ad` (
 	"0064404994",
 	40.00,
 	"ad-5.jpg",
-	"Has a few traces of lion fur",
+	"Has a few traces of lion fur.\nRoar!",
 	"2016-11-20 19:05:46",
 	0
 ), (
