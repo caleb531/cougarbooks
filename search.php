@@ -20,23 +20,18 @@ include('assets/php/head.php');
 		<p>Your search results for '<?php echo $search_word ?>'</p>
 
 		<?php
-			$page_length = 4;
-			$ads = $db->get_ads_by_keyword($search_word, $page_index, $page_length);
+			$ads = $db->get_ads_by_keyword( $search_word, $page_index );
+			$num_ads = count( $ads );
 		?>
 
-        <?php foreach ( $ads as $ad ): ?>
-			<?php display_ad( $ad ); ?>
+		<?php foreach ( $ads as $ad_index => $ad ): ?>
+			<?php if ( $ad_index < $num_ads ): ?>
+				<?php display_ad( $ad ); ?>
+			<?php endif; ?>
 		<?php endforeach; ?>
 
-		<p>
-			<?php if ($page_index > 0): ?>
-				<a href="search.php?q=<?php echo $search_word; ?>&amp;page=<?php echo $page_index - 1; ?>">Previous Page</a> |
-			<?php endif; ?>
-			Page <?php echo ($page_index + 1) ?>
-			<?php if (count($ads) == $page_length): ?>
-				| <a href="search.php?q=<?php echo $search_word; ?>&amp;page=<?php echo $page_index + 1; ?>">Next Page</a>
-			<?php endif; ?>
-		</p>
+		<?php include( 'assets/php/pagination.php' ); ?>
+		<?php display_pagination_controls( $num_ads, $page_index ); ?>
 
 	</main>
 	<?php

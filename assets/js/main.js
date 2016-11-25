@@ -19,6 +19,7 @@ function addFieldValidation(field, message) {
 		}
 	}, false);
 	field.addEventListener('invalid', function (event) {
+		console.log('invalid!');
 		// Display custom validation message if
 		if (event.target.setCustomValidity && !event.target.validity.valid) {
 			event.target.setCustomValidity(message);
@@ -39,6 +40,21 @@ function addAllFormValidation() {
 	}
 }
 
+// Add a convenient shortcut to the email field where the user can simply enter
+// their campus username and the field will add on @cougars.csusm.edu
+function addCampusUsernameShortcut() {
+	var emailField = document.getElementById('email-field');
+	if (emailField) {
+		emailField.addEventListener('change', function () {
+			// If current value is campus username
+			if (/^\s*([a-z]{1,5}\d{3})\s*$/.test(emailField.value)) {
+				emailField.value = emailField.value.replace(/\s+/g, '') + '@cougars.csusm.edu';
+			}
+		});
+	}
+}
+
 addAllFormValidation();
+addCampusUsernameShortcut();
 
 }());

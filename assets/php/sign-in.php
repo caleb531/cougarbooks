@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('database.php');
+include('redirection.php');
 
 // function used for user to sign in
 
@@ -17,12 +18,13 @@ if( isset( $_POST['submit'] ) ){
 
 	$db->sign_in($email, $password);
 
-	if( isset( $_SESSION['signed_in'] ) ){
-		// redirect to signed in users ads
-		header("Location: ../../my-ads.php");
+	if( $_SESSION['signed_in'] === true ){
+
+		cb_redirect_user_signin( $_POST['redirect_path'] );
+
 	}else{
 		// inform the user their login was incorrect
-		header("Location: ../../sign-in.php?loginFailed=1");
+		cb_redirect( '../../sign-in.php?fail=1&redirect=' . urlencode( $_POST['redirect_path'] ) );
 	}
 
 }

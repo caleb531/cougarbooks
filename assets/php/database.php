@@ -89,7 +89,7 @@ class Database {
 				'email_address' => $email
 			) );
 
-			if(hash_equals($user['user_password'], crypt($entered_password, $user['user_password'] ) ) ){
+			if($user['user_password'] === hash( 'sha256', $entered_password . trim( $email ) ) ){
 				$_SESSION['signed_in'] = true;
 				$_SESSION['user_id'] = $user['user_id'];
 				$_SESSION['is_admin'] = $user['is_admin'];
@@ -123,8 +123,8 @@ class Database {
 		}
 	}
 
-	// Retrieve the ads matching the given search keyword
-	public function get_ads_by_keyword( $keyword, $page = 0, $page_length = 10) {
+	// Retrieve the ads matching the given search keyword (supports pagination)
+	public function get_ads_by_keyword( $keyword, $page = 0, $page_length = CB_PAGE_LENGTH ) {
 		$query = "SELECT *
 			FROM ad
 			WHERE is_closed = 0
@@ -136,6 +136,19 @@ class Database {
 		$ads = $this->fetchAll( $query, array(
 	    	'search' => '%' . $keyword . '%'
 		) );
+		return $ads;
+	}
+
+	// Retrieve all ads for the given user (supports pagination)
+	public function get_ads_by_user( $user_id, $page = 0, $page_length = CB_PAGE_LENGTH) {
+		$query = "SELECT *
+			FROM ad
+			WHERE user_id = :user_id
+			LIMIT " . ($page * $page_length) . ", " . $page_length;
+		$ads = $this->fetchAll( $query, array(
+			'user_id' => $user_id
+		) );
+		// Get all ads for this page except the last
 		return $ads;
 	}
 
