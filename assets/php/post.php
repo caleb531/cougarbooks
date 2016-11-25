@@ -3,6 +3,7 @@ session_start();
 include('constants.php');
 include('database.php');
 include('upload.php');
+include('redirection.php');
 
 // Format the book ISBN by removing dashes
 function cb_format_book_isbn( $book_isbn ) {
