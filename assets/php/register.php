@@ -59,7 +59,7 @@ if( ! empty( $_POST['submit'] ) ){
 				'last_name' => trim( $last_name ),
 				'email_address' => trim( $email_address ),
 				'telephone_no' => cb_format_telephone_no( intval( $telephone_no ) ),
-				'user_password' => hash( 'sha256', $user_password . trim( $email_address ) )
+				'user_password' => $db->hash_password( $user_password, $email_address )
 			) );
 
 			$new_user_id = $db->lastInsertId();

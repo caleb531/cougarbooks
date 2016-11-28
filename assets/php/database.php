@@ -77,6 +77,11 @@ class Database {
 		return $this->dbh->lastInsertId();
 	}
 
+	// Securely hashes the given password using the given email as a salt
+	public function hash_password( $password, $email ) {
+		return hash( 'sha256', $password . trim( $email ) );
+	}
+
 	public function sign_in( $email, $entered_password ){
 
 		if(!empty($email) && !empty($entered_password)){
@@ -89,7 +94,7 @@ class Database {
 				'email_address' => $email
 			) );
 
-			if($user['user_password'] === hash( 'sha256', $entered_password . trim( $email ) ) ){
+			if($user['user_password'] === $this->hash_password( $entered_password, $email ) ){
 				$_SESSION['signed_in'] = true;
 				$_SESSION['user_id'] = $user['user_id'];
 				$_SESSION['is_admin'] = $user['is_admin'];
