@@ -101,7 +101,7 @@ class Database {
 
 	// Return true if the currently-signed-in user can edit this ad; otherwise,
 	public function allowed_to_edit_ad( $ad_id ) {
-		if ( $_SESSION['is_admin'] || empty( $ad_id ) ) {
+		if ( ! empty( $_SESSION['is_admin'] ) || empty( $ad_id ) ) {
 			// If signed-in user is admin or if ad ID isn't given, allow user to
 			// post ad
 			return true;
