@@ -17,12 +17,14 @@ include('assets/php/head.php');
 
 		<?php
 		if ( ! empty( $_GET['ad'] ) ) {
+			$ad_id = $_GET['ad'];
 			// Populate fields for existing ad
-			$ad = $db->get_ad( $_GET['ad'] );
+			$ad = $db->get_ad( $ad_id );
 			// Prepend $ to book price for readability
 			$ad['listed_price'] = '$' . $ad['listed_price'];
 			echo '<h1>Edit Textbook Ad</h1>';
 		} else {
+			$ad_id = null;
 			// Leave fields blank for new ad
 			$ad = array(
 				'book_title' => '',
@@ -39,12 +41,12 @@ include('assets/php/head.php');
 
 		<?php if ( $_SESSION['signed_in'] === true ): ?>
 
-			<?php if ( $db->allowed_to_edit_ad( $_GET['ad'] ) ): ?>
+			<?php if ( $db->allowed_to_edit_ad( $ad_id ) ): ?>
 
 				<form class="post-form" action="assets/php/post.php" method="post" enctype="multipart/form-data">
 
-					<?php if ( ! empty( $_GET['ad'] ) ): ?>
-						<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $_GET['ad']; ?>">
+					<?php if ( ! empty( $ad_id ) ): ?>
+						<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $ad_id; ?>">
 					<?php endif; ?>
 
 					<label for="book-title-field">Book Title:</label><br>
@@ -78,7 +80,7 @@ include('assets/php/head.php');
 					<input id="book-image-field" type="file" name="book_image"><br>
 					<small>(1MB max size)</small><br>
 
-					<?php if ( ! empty( $_GET['ad'] ) ): ?>
+					<?php if ( ! empty( $ad_id ) ): ?>
 						<button type="submit" name="submit" value="1">Save Changes</button>
 						<?php if ( $ad['is_closed'] !== '1' ): ?>
 							<button type="submit" name="close" value="1" class="warning">Close Ad</button>
