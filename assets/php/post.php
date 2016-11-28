@@ -33,11 +33,10 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 			book_isbn = :book_isbn,
 			listed_price = :listed_price,
 			ad_description = :ad_description
-			WHERE ad_id = :ad_id AND user_id = :user_id';
+			WHERE ad_id = :ad_id';
 
 		$rowCount = $db->query( $query, array(
 			'ad_id' => $_POST['ad_id'],
-			'user_id' => $_SESSION['user_id'],
 			'book_title' => trim( $_POST['book_title'] ),
 			'book_author' => trim( $_POST['book_author'] ),
 			'book_edition' => trim( $_POST['book_edition'] ),
