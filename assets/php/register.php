@@ -4,8 +4,12 @@ include('database.php');
 include('redirection.php');
 
 // Format the phone number by removing dashes
-function cb_format_telephone_no( $telephone_num ) {
-	return trim( str_replace( '-', '', $telephone_num ) );
+function cb_format_telephone_no( $telephone_no ) {
+	if ( ! empty( $telephone_no ) ) {
+		return trim( str_replace( '-', '', $telephone_no ) );
+	} else {
+		return null;
+	}
 }
 
 // get all the variables that were passed from the form
@@ -26,6 +30,8 @@ if( ! empty( $_POST['submit'] ) ){
 
 	if( !empty( $_POST['phone'] ) ){
 		$telephone_no = trim( $_POST['phone'] );
+	} else {
+		$telephone_no = null;
 	}
 
 	if( !empty( $_POST['password'] ) ){
@@ -58,7 +64,7 @@ if( ! empty( $_POST['submit'] ) ){
 				'first_name' => trim( $first_name ),
 				'last_name' => trim( $last_name ),
 				'email_address' => trim( $email_address ),
-				'telephone_no' => cb_format_telephone_no( intval( $telephone_no ) ),
+				'telephone_no' => cb_format_telephone_no( $telephone_no ),
 				'user_password' => $db->hash_password( $user_password, $email_address )
 			) );
 
