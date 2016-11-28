@@ -41,10 +41,14 @@ function cb_redirect_user_signin( $redirect_path ) {
 // Output a hidden form field containing a redirect path (to be used in Sign In
 // and Registration forms)
 function cb_embed_redirect_field() {
+	// Ensure that PHP doesn't throw an 'undefined index' error
+	if ( ! empty( $_GET['redirect'] ) ) {
+		$redirect_path = $_GET['redirect'];
+	} else {
+		$redirect_path = '';
+	}
 	?>
-	<?php if ( ! empty( $_GET['redirect'] ) ): ?>
-		<input type="hidden" name="redirect_path" value="<?php echo $_GET['redirect']; ?>" />
-	<?php endif; ?>
+	<input type="hidden" name="redirect_path" value="<?php echo $redirect_path; ?>" />
 	<?php
 }
 
