@@ -39,15 +39,20 @@ function upload_book_image( $ad_id ) {
 function delete_book_image( $ad_id ) {
 	global $db;
 
-	// Retrieve path to uploaded image for this ad
-	$query = 'SELECT path_to_picture FROM ad WHERE ad_id = :ad_id';
-	$ad = $db->fetchOne( $query, array(
-		'ad_id' => $ad_id
-	) );
-	$book_image_path = $_SERVER['DOCUMENT_ROOT'] . '/' . CB_AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture'];
-	// // Only delete image if ad and the corresponding image file exist
-	if ( ! empty( $ad ) && ! empty( $ad['path_to_picture'] ) && file_exists( $book_image_path ) ) {
-		unlink( $book_image_path );
+	// Only delete book image if a replacement has been uploaded
+	if ( ! empty( $_FILES['book_image']['name'] ) ) {
+
+		// Retrieve path to uploaded image for this ad
+		$query = 'SELECT path_to_picture FROM ad WHERE ad_id = :ad_id';
+		$ad = $db->fetchOne( $query, array(
+			'ad_id' => $ad_id
+		) );
+		$book_image_path = $_SERVER['DOCUMENT_ROOT'] . '/' . CB_AD_PHOTO_PATH_BASE . '/' . $ad['path_to_picture'];
+		// // Only delete image if ad and the corresponding image file exist
+		if ( ! empty( $ad ) && ! empty( $ad['path_to_picture'] ) && file_exists( $book_image_path ) ) {
+			unlink( $book_image_path );
+		}
+
 	}
 
 }
