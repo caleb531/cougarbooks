@@ -8,6 +8,11 @@ function cb_format_telephone_no( $telephone_no ) {
 	return trim( str_replace( '-', '', $telephone_no ) );
 }
 
+// Prevent unauthorized users from trying to update account information
+if ( ! isset( $_SESSION['signed_in'] ) ) {
+	die('Cannot update account: authentication failed');
+}
+
 $first_name = trim( $_POST['first_name'] );
 $last_name = trim( $_POST['last_name'] );
 $email_address = trim( $_POST['email'] );
