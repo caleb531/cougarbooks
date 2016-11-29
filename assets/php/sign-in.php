@@ -18,7 +18,7 @@ if( isset( $_POST['submit'] ) ){
 
 	$db->sign_in($email, $password);
 
-	if( $_SESSION['signed_in'] === true ){
+	if( ! empty( $_SESSION['signed_in'] ) ){
 
 		cb_redirect_user_signin( $_POST['redirect_path'] );
 

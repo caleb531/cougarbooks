@@ -2,7 +2,7 @@
 	<h1><a href="index.php">CougarBooks</a></h1>
 	<nav id="site-navigation">
 		<ul>
-			<?php if ( $_SESSION['signed_in'] === true ): ?>
+			<?php if ( ! empty( $_SESSION['signed_in'] ) ): ?>
 				<li><a href="post.php">Post New Ad</a></li>
 				<li><a href="my-ads.php">My Ads</a></li>
 				<li><a href="account.php">Account</a></li>
