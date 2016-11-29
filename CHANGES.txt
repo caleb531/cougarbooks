@@ -1,5 +1,0 @@
-CHANGES
-
-Changes since phase 2 submission (excluding phase 3 requirements):
-  - Added description of administrative functionality to proposal
-  - Added form validation to all relevant pages
