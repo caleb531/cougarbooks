@@ -1,4 +1,6 @@
+DROP TABLE IF EXISTS `ad`;
 DROP TABLE IF EXISTS `user`;
+
 CREATE TABLE `user`(
 	`user_id` INTEGER AUTO_INCREMENT,
 	`user_password` CHAR(64) NOT NULL,
@@ -10,7 +12,6 @@ CREATE TABLE `user`(
 	PRIMARY KEY user_PK (`user_id`)
 );
 
-DROP TABLE IF EXISTS `ad`;
 CREATE TABLE `ad`(
 	`ad_id` INTEGER AUTO_INCREMENT,
 	`user_id` INT NOT NULL,
