@@ -6,7 +6,7 @@ CREATE TABLE `user`(
 	`last_name` VARCHAR(50) NOT NULL,
 	`email_address` VARCHAR(320) NOT NULL,
 	`telephone_no` VARCHAR(12),
-	`is_admin` TINYINT(1) NOT NULL,
+	`is_admin` TINYINT(1) NOT NULL DEFAULT 0,
 	PRIMARY KEY user_PK (`user_id`)
 );
 
