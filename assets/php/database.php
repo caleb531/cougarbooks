@@ -157,6 +157,26 @@ class Database {
 		return $ads;
 	}
 
+	// Returns true if the given email address is already taken by some user
+	// other than the user with the given ID
+	public function email_already_taken( $email_address ) {
+		$query = "SELECT email_address FROM user WHERE email_address = :email";
+		$params = array(
+			'email' => $email_address
+		);
+		// If user is signed in, assume user is trying to change email
+		if ( isset( $_SESSION['user_id'] ) ) {
+			$query .= ' AND user_id != :user_id';
+			$params['user_id'] = $_SESSION['user_id'];
+		}
+		$num_existing_users = $this->query( $query, $params );
+		if ( $num_existing_users !== 0 ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
 
 

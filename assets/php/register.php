@@ -46,14 +46,8 @@ if( ! empty( $_POST['submit'] ) ){
 	// in order to avoid the user entering incorrect password
 	if( $user_password == $confirm_password ){
 
-		// Check to see if this email address is already taken
-		$query = "SELECT email_address FROM user WHERE email_address = :email";
-		$num_existing_users = $db->query( $query, array(
-			'email' => $email_address
-		) );
-
 		// If no registered users with the same email address exist
-		if ( $num_existing_users === 0 ) {
+		if ( $db->email_already_taken( $email_address ) ) {
 			// Register new user as normal
 
 			$query = 'INSERT INTO user
