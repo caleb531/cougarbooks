@@ -11,6 +11,10 @@ include('assets/php/head.php');
 
 	<main>
 
+		<?php if ( isset( $_GET['success'] ) ): ?>
+			<div class="notification">Account info updated!</div>
+		<?php endif; ?>
+
 		<?php if ( isset( $_GET['email_taken'] ) ): ?>
 			<div class="notification warning">Email is already taken. Please use a different email address.</div>
 		<?php endif; ?>

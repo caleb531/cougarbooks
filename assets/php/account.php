@@ -55,7 +55,7 @@ if ( $db->email_already_taken( $email_address ) ) {
 		) );
 
 		// Redirect back to Account page after saving changes
-		cb_redirect('../../account.php');
+		cb_redirect('../../account.php?success=1');
 
 	} else {
 
