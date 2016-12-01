@@ -25,7 +25,7 @@ $ad = $db->get_ad( $_GET['ad'] );
 					<a href="post.php?ad=<?php echo htmlspecialchars( $_GET['ad'] ); ?>" class="edit-ad-link">Edit</a>
 				<?php endif ?>
 
-				<h1 class="book-title"><?php echo htmlspecialchars( $ad['book_title'] ); ?></a></h1>
+				<h1 class="book-title"><?php echo htmlspecialchars( $ad['book_title'] ); ?></h1>
 
 				<?php if ( $ad['is_closed'] ): ?>
 					<span class="closed-badge">Closed</span>
