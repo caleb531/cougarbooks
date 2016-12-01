@@ -27,3 +27,23 @@ CREATE TABLE `ad`(
 	PRIMARY KEY ad_PK (`ad_id`),
 	FOREIGN KEY user_FK (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS `user_log`;
+CREATE TABLE `user_log`(
+	`action_id` INTEGER AUTO_INCREMENT,
+	`user_id` INTEGER,
+	`action` ENUM('signin', 'signout'),
+	`action_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY user_log_PK(`action_id`),
+	FOREIGN KEY user_log_FK(`user_id`) REFERENCES `user`(`user_id`)
+);
+
+DROP TABLE IF EXISTS `ad_log`;
+CREATE TABLE `ad_log`(
+	`action_id` INTEGER AUTO_INCREMENT,
+	`ad_id` INTEGER,
+	`action` ENUM('added', 'edited', 'closed'),
+	`action_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY ad_log_PK(`action_id`),
+	FOREIGN KEY ad_log_FK(`ad_id`) REFERENCES `ad`(`ad_id`)
+);
