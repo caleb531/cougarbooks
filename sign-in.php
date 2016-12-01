@@ -3,7 +3,7 @@ include('assets/php/head.php');
 // if instructed to signout
 // lets clear all the session variables
 if( isset( $_GET['signout'] ) ){
-	session_unset();
+	session_destroy();
 }
 ?>
 <title>CougarBooks | Sign In</title>
