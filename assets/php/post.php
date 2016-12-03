@@ -95,7 +95,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 	upload_book_image( $new_ad_id );
 
 	// log to database when ad was added
-	$db->log_ad_action( $_POST['ad_id'], 'added' );
+	$db->log_ad_action( $new_ad_id, 'added' );
 
 	// Redirect to page for new ad
 	cb_redirect( "../../ad.php?ad=$new_ad_id" );

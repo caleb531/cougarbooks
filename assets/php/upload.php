@@ -9,7 +9,7 @@ function upload_book_image( $ad_id ) {
 		$ad = $db->get_ad( $ad_id );
 
 		$upload_file_path_info = pathinfo( $_FILES['book_image']['name'] );
-		$upload_file_info = $upload_file_path_info['extension'];
+		$upload_file_ext = $upload_file_path_info['extension'];
 		$upload_file_full_name = "ad-$ad_id.$upload_file_ext";
 		$upload_file_rel_path = CB_AD_PHOTO_PATH_BASE . '/' . $upload_file_full_name;
 		// The absolute path to the file on the server

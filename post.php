@@ -45,9 +45,7 @@ include('assets/php/head.php');
 
 				<form class="post-form" action="assets/php/post.php" method="post" enctype="multipart/form-data">
 
-					<?php if ( ! empty( $ad_id ) ): ?>
-						<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $ad_id; ?>">
-					<?php endif; ?>
+					<input id="ad-id-field" type="hidden" name="ad_id" value="<?php echo $ad_id; ?>">
 
 					<label for="book-title-field">Book Title:</label><br>
 					<input id="book-title-field" type="text" name="book_title" required maxlength="100" value="<?php echo htmlspecialchars( $ad['book_title'] ); ?>" autofocus><br>
