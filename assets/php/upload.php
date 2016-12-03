@@ -13,7 +13,7 @@ function upload_book_image( $ad_id ) {
 		$upload_file_full_name = "ad-$ad_id.$upload_file_ext";
 		$upload_file_rel_path = CB_AD_PHOTO_PATH_BASE . '/' . $upload_file_full_name;
 		// The absolute path to the file on the server
-		$upload_file_abs_path = dirname( __FILE__, 3 ) . '/' . $upload_file_rel_path;
+		$upload_file_abs_path = dirname( dirname( dirname( __FILE__ ) ) ) . '/' . $upload_file_rel_path;
 
 	 	$upload_status = move_uploaded_file( $_FILES['book_image']['tmp_name'], $upload_file_abs_path );
 		if ( $upload_status ) {
