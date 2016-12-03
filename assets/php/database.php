@@ -24,7 +24,7 @@ class Database {
 
 	// Close connection to database
 	public function close() {
-		$this->db = null;
+		$this->dbh = null;
 	}
 
 	// execute generic query (returning row count)
