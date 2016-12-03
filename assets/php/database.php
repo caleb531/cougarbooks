@@ -95,9 +95,13 @@ class Database {
 			) );
 
 			if($user['user_password'] === $this->hash_password( $entered_password, $email ) ){
+				// set session variables with user data
 				$_SESSION['signed_in'] = true;
 				$_SESSION['user_id'] = $user['user_id'];
 				$_SESSION['is_admin'] = $user['is_admin'];
+
+				// log user signed in to db
+				$this->log_user_action($user['user_id'], 'signin');
 			} else {
 				$_SESSION['signed_in'] = false;
 			}
@@ -177,7 +181,35 @@ class Database {
 		}
 	}
 
+	// log user ineraction sign in / sign out
+	public function log_user_action( $user_id, $action ) {
+		$query = "INSERT INTO user_log ( user_id, action )
+							VALUES ( user_id = :user_id, action = :action )";
+		$params = ( array(
+				'user_id' => $user_id,
+				'action' => $action
+		) );
+
+		$this->query( $query, $params );
+
+	}
+
+	// log ad interaction added, edited, closed
+	public function log_ad_action( $ad_id, $action ) {
+		$query = "INSERT INTO ad_log ( ad_id, action )
+							VALUES ( ad_id = :ad_id, action = :action )";
+		$params = ( array(
+				'ad_id' => $ad_id,
+				'action' => $action
+		) );
+
+		$this->query( $query, $params );
+
+	}
+
 }
+
+
 
 
 $db = new Database('team2', 'evans099', 'evans099');

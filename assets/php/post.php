@@ -45,6 +45,9 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 			'ad_description' => trim( $_POST['ad_description'] )
 		) );
 
+		// log to database when ad was edited
+		$db->log_ad_action( $_POST['ad_id'], 'edited' );
+
 		// Re-upload any provided book photo
 		delete_book_image( $_POST['ad_id'] );
 		upload_book_image( $_POST['ad_id'] );
@@ -60,6 +63,9 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 		$db->query( $query, array(
 			'ad_id' => $_POST['ad_id']
 		) );
+
+	  // log to database when ad was closed
+		$db->log_ad_action( $_POST['ad_id'], 'closed' );
 
 		// Redirect to My Ads page once ad has been closed
 		cb_redirect( "../../my-ads.php?closed=1" );
@@ -87,6 +93,10 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 	$new_ad_id = $db->lastInsertId();
 	// Upload any provided book photo to server
 	upload_book_image( $new_ad_id );
+
+	// log to database when ad was added
+	$db->log_ad_action( $_POST['ad_id'], 'added' );
+
 	// Redirect to page for new ad
 	cb_redirect( "../../ad.php?ad=$new_ad_id" );
 

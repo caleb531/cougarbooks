@@ -3,6 +3,11 @@ include('assets/php/head.php');
 // if instructed to signout
 // lets clear all the session variables
 if( isset( $_GET['signout'] ) ){
+	// include required to log signout
+	include('assets/php/database.php');
+
+	// log whenever uer signs out
+	$db->log_user_action($_SESSION['user_id'], 'signout');
 	session_destroy();
 }
 ?>
