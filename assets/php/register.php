@@ -47,7 +47,7 @@ if( ! empty( $_POST['submit'] ) ){
 	if( $user_password == $confirm_password ){
 
 		// If no registered users with the same email address exist
-		if ( $db->email_already_taken( $email_address ) ) {
+		if ( ! $db->email_already_taken( $email_address ) ) {
 			// Register new user as normal
 
 			$query = 'INSERT INTO user
