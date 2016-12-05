@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS `ad`;
 DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `ad_log`;
+DROP TABLE IF EXISTS `user_log`;
 
 CREATE TABLE `user`(
 	`user_id` INTEGER AUTO_INCREMENT,
@@ -28,7 +30,7 @@ CREATE TABLE `ad`(
 	FOREIGN KEY user_FK (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS `user_log`;
+
 CREATE TABLE `user_log`(
 	`action_id` INTEGER AUTO_INCREMENT,
 	`user_id` INTEGER,
@@ -38,7 +40,7 @@ CREATE TABLE `user_log`(
 	FOREIGN KEY user_log_FK(`user_id`) REFERENCES `user`(`user_id`)
 );
 
-DROP TABLE IF EXISTS `ad_log`;
+
 CREATE TABLE `ad_log`(
 	`action_id` INTEGER AUTO_INCREMENT,
 	`ad_id` INTEGER,
