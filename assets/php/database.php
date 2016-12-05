@@ -79,7 +79,7 @@ class Database {
 
 	// Securely hashes the given password using the given email as a salt
 	public function hash_password( $password, $email ) {
-		return hash( 'sha256', $password . trim( $email ) );
+		return hash( 'sha256', hash( 'sha256', $password ) . hash( 'sha256', trim( $email ) ) );
 	}
 
 	public function sign_in( $email, $entered_password ){
