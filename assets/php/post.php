@@ -50,9 +50,15 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 
 		// Re-upload any provided book photo
 		delete_book_image( $_POST['ad_id'] );
-		upload_book_image( $_POST['ad_id'] );
-		// Redirect to updated ad page
-		cb_redirect( "../../ad.php?ad={$_POST['ad_id']}" );
+		$upload_status = upload_book_image( $_POST['ad_id'] );
+		// If uploaded image is too large
+		if ( $upload_status ) {
+			// Redirect to updated ad page
+			cb_redirect( "../../ad.php?ad={$_POST['ad_id']}" );
+		} else {
+			// Otherwise, redirect to post page with error
+			cb_redirect( "../../post.php?ad={$_POST['ad_id']}&uploadfail=1" );
+		}
 
 	} else if ( ! empty( $_POST['close'] ) ) {
 
@@ -64,7 +70,7 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 			'ad_id' => $_POST['ad_id']
 		) );
 
-	  // log to database when ad was closed
+	  	// log to database when ad was closed
 		$db->log_ad_action( $_POST['ad_id'], 'closed' );
 
 		// Redirect to My Ads page once ad has been closed
@@ -91,14 +97,17 @@ if ( ! empty( $_POST['ad_id'] ) ) {
 	) );
 
 	$new_ad_id = $db->lastInsertId();
-	// Upload any provided book photo to server
-	upload_book_image( $new_ad_id );
-
 	// log to database when ad was added
 	$db->log_ad_action( $new_ad_id, 'added' );
 
-	// Redirect to page for new ad
-	cb_redirect( "../../ad.php?ad=$new_ad_id" );
+	// Upload any provided book photo to server
+	$upload_status = upload_book_image( $new_ad_id );
+	if ( $upload_status ) {
+		// Redirect to page for new ad
+		cb_redirect( "../../ad.php?ad=$new_ad_id" );
+	} else {
+		cb_redirect( "../../post.php?ad={$_POST['ad_id']}&uploadfail=1" );
+	}
 
 }
 

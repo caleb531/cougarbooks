@@ -25,12 +25,20 @@ function upload_book_image( $ad_id ) {
 				'ad_id' => $ad_id,
 				'picture_path' => $upload_file_full_name
 			) );
+			return true;
 
 		} else {
 
 			error_log( "Book photo upload failed for ad $ad_id" );
+			return false;
 
 		}
+
+		return true;
+
+	} else {
+
+		return false;
 
 	}
 

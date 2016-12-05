@@ -15,6 +15,10 @@ include('assets/php/head.php');
 
 	<main>
 
+		<?php if ( isset( $_GET['uploadfail'] ) ): ?>
+			<div class="notification warning">Image size is too large. Please upload a smaller image.</div>
+		<?php endif; ?>
+
 		<?php
 		if ( ! empty( $_GET['ad'] ) ) {
 			$ad_id = $_GET['ad'];
