@@ -25,7 +25,6 @@ function upload_book_image( $ad_id ) {
 				'ad_id' => $ad_id,
 				'picture_path' => $upload_file_full_name
 			) );
-			return true;
 
 		} else {
 
@@ -34,13 +33,9 @@ function upload_book_image( $ad_id ) {
 
 		}
 
-		return true;
-
-	} else {
-
-		return false;
-
 	}
+
+	return true;
 
 }
 
