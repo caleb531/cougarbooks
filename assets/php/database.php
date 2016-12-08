@@ -137,13 +137,14 @@ class Database {
 		$query = "SELECT *
 			FROM ad
 			WHERE is_closed = 0
-			AND (book_title LIKE :search
-				OR book_author Like :search
-				OR book_isbn Like :search
-				OR ad_description Like :search)
+			AND (book_title LIKE :title
+				OR book_author LIKE :author
+				OR book_isbn = :isbn)
 			LIMIT " . ($page * $page_length) . ", " . $page_length;
 		$ads = $this->fetchAll( $query, array(
-	    	'search' => '%' . $keyword . '%'
+	    	'title' => '%' . $keyword . '%',
+	    	'author' => '%' . $keyword . '%',
+	    	'isbn' => $keyword
 		) );
 		return $ads;
 	}
